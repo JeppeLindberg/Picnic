@@ -7,7 +7,9 @@
 radius = 31.1448
 
 [node name="Enemy" type="KinematicBody2D"]
+collision_layer = 0
 script = ExtResource( 2 )
+speed = 20.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
