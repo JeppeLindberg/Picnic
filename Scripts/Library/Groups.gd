@@ -1,0 +1,1 @@
+const ENEMY: String = "enemy"
