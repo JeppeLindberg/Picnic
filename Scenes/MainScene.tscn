@@ -39,7 +39,7 @@ position = Vector2( 1000, 302 )
 
 [node name="GameState" type="Node2D" parent="."]
 script = ExtResource( 6 )
-end_index = 760
+end_index = 700
 lanes = 10
 
 [node name="GUI" parent="." instance=ExtResource( 2 )]
