@@ -6,6 +6,7 @@ var _Groups := preload("res://Scripts/Library/Groups.gd").new()
 var initialized = false
 var start_pos: Vector2
 var target_pos: Vector2
+var dead = false
 export var speed: float
 
 const Nodes := preload("res://Scripts/Nodes.gd")
@@ -47,10 +48,11 @@ func _physics_process(delta):
 	var movement_vec = (path[0] - position).normalized() * delta * speed
 	rotation = movement_vec.normalized().rotated(PI / 2).angle()
 	var collision = move_and_collide(movement_vec)
-	if collision:
+	if collision and ! dead:
 		collision.collider.collide()
 		collide()
 
 func collide():
+	dead = true
 	_ref_Nodes.remove_from_nodes(self)
 	self.queue_free()

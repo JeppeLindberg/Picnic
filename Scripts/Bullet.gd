@@ -25,7 +25,7 @@ func _physics_process(delta):
 	
 	rotation = movement_vec.normalized().rotated(PI / 2).angle()
 	var collision = move_and_collide(movement_vec)
-	if collision:
+	if collision and not collision.collider.dead:
 		collision.collider.collide()
 		collide()
 	if start_pos.distance_to(position) > max_range:
