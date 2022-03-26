@@ -1,149 +1,36 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Resources/Grid3x.png" type="Texture" id=1]
+[ext_resource path="res://Resources/PicnicCloth/Grid3x.png" type="Texture" id=1]
 
-[node name="Node2D" type="Node2D"]
+[node name="PicnicClothBackground" type="Node2D"]
+position = Vector2( 480, 480 )
 
 [node name="Grid3x" type="Sprite" parent="."]
-position = Vector2( 280, -16 )
-scale = Vector2( 0.350877, 0.350877 )
+position = Vector2( -288, -288 )
+scale = Vector2( 0.421053, 0.421053 )
 texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
 
 [node name="Grid3x2" type="Sprite" parent="."]
-position = Vector2( 600, -16 )
-scale = Vector2( 0.350877, 0.350877 )
+position = Vector2( 96, -288 )
+scale = Vector2( 0.421053, 0.421053 )
 texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
 
 [node name="Grid3x3" type="Sprite" parent="."]
-position = Vector2( 600, -336 )
-scale = Vector2( 0.350877, 0.350877 )
+position = Vector2( 480, -288 )
+scale = Vector2( 0.421053, 0.421053 )
 texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
 
 [node name="Grid3x4" type="Sprite" parent="."]
-position = Vector2( 280, -336 )
-scale = Vector2( 0.350877, 0.350877 )
+position = Vector2( -288, 95.9999 )
+scale = Vector2( 0.421053, 0.421053 )
 texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
 
 [node name="Grid3x5" type="Sprite" parent="."]
-position = Vector2( -40, -336 )
-scale = Vector2( 0.350877, 0.350877 )
+position = Vector2( 96, 95.9999 )
+scale = Vector2( 0.421053, 0.421053 )
 texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
 
 [node name="Grid3x6" type="Sprite" parent="."]
-position = Vector2( -40, -16 )
-scale = Vector2( 0.350877, 0.350877 )
+position = Vector2( 480, 95.9999 )
+scale = Vector2( 0.421053, 0.421053 )
 texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x7" type="Sprite" parent="."]
-position = Vector2( 280, 624 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x8" type="Sprite" parent="."]
-position = Vector2( 600, 624 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x9" type="Sprite" parent="."]
-position = Vector2( 600, 304 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x10" type="Sprite" parent="."]
-position = Vector2( 280, 304 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x11" type="Sprite" parent="."]
-position = Vector2( -40, 304 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x12" type="Sprite" parent="."]
-position = Vector2( -40, 624 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x13" type="Sprite" parent="."]
-position = Vector2( 1240, -16 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x14" type="Sprite" parent="."]
-position = Vector2( 1560, -16 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x15" type="Sprite" parent="."]
-position = Vector2( 1560, -336 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x16" type="Sprite" parent="."]
-position = Vector2( 1240, -336 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x17" type="Sprite" parent="."]
-position = Vector2( 920, -336 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x18" type="Sprite" parent="."]
-position = Vector2( 920, -16 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x19" type="Sprite" parent="."]
-position = Vector2( 1240, 624 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x20" type="Sprite" parent="."]
-position = Vector2( 1560, 624 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x21" type="Sprite" parent="."]
-position = Vector2( 1560, 304 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x22" type="Sprite" parent="."]
-position = Vector2( 1240, 304 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x23" type="Sprite" parent="."]
-position = Vector2( 920, 304 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
-
-[node name="Grid3x24" type="Sprite" parent="."]
-position = Vector2( 920, 624 )
-scale = Vector2( 0.350877, 0.350877 )
-texture = ExtResource( 1 )
-offset = Vector2( -798, 45.6 )
