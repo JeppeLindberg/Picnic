@@ -73,7 +73,7 @@ func _input(event):
 		#Or a button has been clicked
 		elif activeButton  and can_place:
 			var tower = activeButton.get_spawn_object().instance()
-			if _ref_GameState.money >= tower.price:
+			if _ref_GameState.current_money >= tower.price:
 				get_owner().add_child(tower)
 				tower.position = rounded_position
 				_ref_GameState.lose_money(tower.price)

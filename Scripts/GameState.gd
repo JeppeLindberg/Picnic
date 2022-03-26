@@ -76,6 +76,10 @@ func spawn_enemy():
 	var enemy = Enemy.instance() as Node2D
 	get_parent().add_child(enemy)
 	enemy.position = spawn_loc
+	
+func end_wave():
+	_ongoing_wave = false
+	_last_wave_end_time = OS.get_ticks_msec()
 
 func _ready():
 	rng.randomize()
