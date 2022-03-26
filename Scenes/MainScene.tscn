@@ -1,23 +1,16 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
-[ext_resource path="res://Resources/UI/Flower1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/InputManager.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Tower.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Cake.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/GameState.gd" type="Script" id=6]
-[ext_resource path="res://Resources/UI/Strawberry1.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/PlaceableTemplate.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Nodes.gd" type="Script" id=9]
-[ext_resource path="res://Resources/Themes/Theme.tres" type="Theme" id=10]
 [ext_resource path="res://Assets/TowerPreview.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/PicnicClothBackground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Resources/UI/MouseIcon.png" type="Texture" id=13]
-[ext_resource path="res://Resources/UI/Strawberry2.png" type="Texture" id=14]
-[ext_resource path="res://Resources/UI/Strawberry6.png" type="Texture" id=15]
-[ext_resource path="res://Resources/UI/Strawberry3.png" type="Texture" id=16]
-[ext_resource path="res://Resources/UI/Strawberry4.png" type="Texture" id=17]
-[ext_resource path="res://Resources/UI/Strawberry5.png" type="Texture" id=18]
 [ext_resource path="res://Resources/UI/Mousecost.png" type="Texture" id=19]
 [ext_resource path="res://Assets/BadgerTower.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/BadgerTowerPreview.tscn" type="PackedScene" id=21]
@@ -49,98 +42,7 @@ script = ExtResource( 6 )
 end_index = 760
 lanes = 10
 
-[node name="GUI" type="MarginContainer" parent="."]
-margin_left = 2.0
-margin_right = 1025.0
-margin_bottom = 604.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Top" type="VBoxContainer" parent="GUI"]
-margin_right = 1023.0
-margin_bottom = 604.0
-
-[node name="WaveContainer" type="HBoxContainer" parent="GUI/Top"]
-margin_right = 1023.0
-margin_bottom = 64.0
-
-[node name="Label" type="Label" parent="GUI/Top/WaveContainer"]
-margin_right = 1023.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 132, 64 )
-size_flags_horizontal = 3
-theme = ExtResource( 10 )
-text = "Wave 0"
-align = 1
-valign = 2
-
-[node name="RightBottom" type="VBoxContainer" parent="GUI"]
-margin_right = 1023.0
-margin_bottom = 604.0
-alignment = 2
-
-[node name="MoneyContainer" type="HBoxContainer" parent="GUI/RightBottom"]
-margin_top = 472.0
-margin_right = 1023.0
-margin_bottom = 536.0
-alignment = 2
-
-[node name="Money" type="TextureRect" parent="GUI/RightBottom/MoneyContainer"]
-margin_left = 831.0
-margin_right = 887.0
-margin_bottom = 64.0
-texture = ExtResource( 2 )
-
-[node name="Label" type="Label" parent="GUI/RightBottom/MoneyContainer"]
-margin_left = 891.0
-margin_right = 1023.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 132, 64 )
-theme = ExtResource( 10 )
-text = " X 10"
-valign = 2
-
-[node name="HealthContainer" type="HBoxContainer" parent="GUI/RightBottom"]
-margin_top = 540.0
-margin_right = 1023.0
-margin_bottom = 604.0
-alignment = 2
-
-[node name="Health1" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 619.0
-margin_right = 683.0
-margin_bottom = 64.0
-texture = ExtResource( 7 )
-
-[node name="Health2" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 687.0
-margin_right = 751.0
-margin_bottom = 64.0
-texture = ExtResource( 14 )
-
-[node name="Health3" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 755.0
-margin_right = 819.0
-margin_bottom = 64.0
-texture = ExtResource( 16 )
-
-[node name="Health4" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 823.0
-margin_right = 887.0
-margin_bottom = 64.0
-texture = ExtResource( 17 )
-
-[node name="Health5" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 891.0
-margin_right = 955.0
-margin_bottom = 64.0
-texture = ExtResource( 18 )
-
-[node name="Health6" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 959.0
-margin_right = 1023.0
-margin_bottom = 64.0
-texture = ExtResource( 15 )
+[node name="GUI" parent="." instance=ExtResource( 2 )]
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -148,7 +50,7 @@ marker = NodePath("../PathfindDebug")
 objects = [ NodePath("Mouse"), NodePath("Badger"), NodePath("Frog"), NodePath("Fork"), NodePath("CoffeeCup") ]
 
 [node name="Mouse" type="Sprite" parent="InputManager"]
-position = Vector2( 37, 37 )
+position = Vector2( 32, 48 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 13 )
 script = ExtResource( 8 )
@@ -157,7 +59,7 @@ preview_object = ExtResource( 11 )
 price = 5
 
 [node name="Badger" type="Sprite" parent="InputManager"]
-position = Vector2( 37, 111 )
+position = Vector2( 104, 48 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 22 )
 script = ExtResource( 8 )
@@ -166,7 +68,7 @@ preview_object = ExtResource( 21 )
 price = 12
 
 [node name="Frog" type="Sprite" parent="InputManager"]
-position = Vector2( 38, 186 )
+position = Vector2( 176, 48 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 26 )
 script = ExtResource( 8 )
@@ -175,7 +77,7 @@ preview_object = ExtResource( 25 )
 price = 50
 
 [node name="Fork" type="Sprite" parent="InputManager"]
-position = Vector2( 40, 257 )
+position = Vector2( 248, 48 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 28 )
 script = ExtResource( 8 )
@@ -196,15 +98,13 @@ extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 64, 0 ), Vector2(
 price = 0
 
 [node name="Mousecost" type="Sprite" parent="InputManager"]
-visible = false
-position = Vector2( 59, 67 )
-scale = Vector2( 0.289157, 0.289157 )
+position = Vector2( 56, 24 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 19 )
 
 [node name="BadgerCost" type="Sprite" parent="InputManager"]
-visible = false
-position = Vector2( 90, 128 )
-scale = Vector2( 0.362637, 0.362637 )
+position = Vector2( 112, 8 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 23 )
 
 [node name="PickupSpawn" type="Node2D" parent="."]

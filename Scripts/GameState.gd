@@ -190,7 +190,7 @@ func _ready():
 	_health_display.append(get_node("/root/MainScene/GUI/RightBottom/HealthContainer/Health5"))
 	_health_display.append(get_node("/root/MainScene/GUI/RightBottom/HealthContainer/Health6"))
 	_money_display = get_node("/root/MainScene/GUI/RightBottom/MoneyContainer/Label")
-	_wave_display = get_node("/root/MainScene/GUI/Top/WaveContainer/Label")
+	_wave_display = get_node("/root/MainScene/GUI/WaveContainer/Label")
 	_enemy_spawn_top_left = get_node("/root/MainScene/EnemySpawn/TopLeft")
 	_enemy_spawn_bottom_right = get_node("/root/MainScene/EnemySpawn/BottomRight")
 	_reward_spawn_top_left = get_node("/root/MainScene/PickupSpawn/TopLeft")
