@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
+[ext_resource path="res://Assets/OwlTower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/InputManager.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Tower.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Cake.tscn" type="PackedScene" id=5]
@@ -12,6 +13,7 @@
 [ext_resource path="res://Assets/TowerPreview.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/PicnicClothBackground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Resources/UI/MouseIcon.png" type="Texture" id=13]
+[ext_resource path="res://Assets/OwlTowerPreview.tscn" type="PackedScene" id=14]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -131,7 +133,7 @@ texture = ExtResource( 7 )
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
-objects = [ NodePath("Button") ]
+objects = [ NodePath("Button"), NodePath("Owl") ]
 
 [node name="Button" type="Sprite" parent="InputManager"]
 position = Vector2( 37, 37 )
@@ -140,6 +142,15 @@ texture = ExtResource( 13 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 4 )
 preview_object = ExtResource( 11 )
+
+[node name="Owl" type="Sprite" parent="InputManager"]
+modulate = Color( 0.960784, 1, 0.317647, 1 )
+position = Vector2( 37, 111 )
+scale = Vector2( 0.546875, 0.546875 )
+texture = ExtResource( 13 )
+script = ExtResource( 8 )
+spawn_object = ExtResource( 2 )
+preview_object = ExtResource( 14 )
 
 [node name="EnemySpawn" type="Node2D" parent="."]
 position = Vector2( -192, 66 )
