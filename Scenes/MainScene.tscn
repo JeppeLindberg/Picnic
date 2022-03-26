@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Enemy.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/PlaceableTemplate.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Nodes.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Theme.tres" type="Theme" id=10]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,33 +33,83 @@ position = Vector2( 830, 302 )
 script = ExtResource( 6 )
 
 [node name="GUI" type="MarginContainer" parent="."]
-margin_left = 747.0
-margin_top = 536.0
+margin_left = 524.0
+margin_top = 468.0
 margin_right = 1025.0
-margin_bottom = 600.0
+margin_bottom = 604.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HealthContainer" type="HBoxContainer" parent="GUI"]
-margin_right = 278.0
+[node name="RightBottom" type="VBoxContainer" parent="GUI"]
+margin_right = 501.0
+margin_bottom = 136.0
+
+[node name="MoneyContainer" type="HBoxContainer" parent="GUI/RightBottom"]
+margin_right = 501.0
 margin_bottom = 64.0
 alignment = 2
 
-[node name="Health1" type="TextureRect" parent="GUI/HealthContainer"]
-margin_left = 78.0
-margin_right = 142.0
+[node name="Money" type="TextureRect" parent="GUI/RightBottom/MoneyContainer"]
+modulate = Color( 0.87451, 1, 0, 1 )
+margin_left = 301.0
+margin_right = 365.0
 margin_bottom = 64.0
 texture = ExtResource( 7 )
 
-[node name="Health2" type="TextureRect" parent="GUI/HealthContainer"]
-margin_left = 146.0
-margin_right = 210.0
+[node name="Label" type="Label" parent="GUI/RightBottom/MoneyContainer"]
+margin_left = 369.0
+margin_right = 501.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 132, 64 )
+theme = ExtResource( 10 )
+text = " X 10"
+valign = 2
+
+[node name="HealthContainer" type="HBoxContainer" parent="GUI/RightBottom"]
+margin_top = 68.0
+margin_right = 501.0
+margin_bottom = 132.0
+alignment = 2
+
+[node name="Health1" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
+modulate = Color( 1, 0.454902, 0.454902, 1 )
+margin_left = 97.0
+margin_right = 161.0
 margin_bottom = 64.0
 texture = ExtResource( 7 )
 
-[node name="Health3" type="TextureRect" parent="GUI/HealthContainer"]
-margin_left = 214.0
-margin_right = 278.0
+[node name="Health2" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
+modulate = Color( 1, 0.454902, 0.454902, 1 )
+margin_left = 165.0
+margin_right = 229.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+
+[node name="Health3" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
+modulate = Color( 1, 0.454902, 0.454902, 1 )
+margin_left = 233.0
+margin_right = 297.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+
+[node name="Health4" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
+modulate = Color( 1, 0.454902, 0.454902, 1 )
+margin_left = 301.0
+margin_right = 365.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+
+[node name="Health5" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
+modulate = Color( 1, 0.454902, 0.454902, 1 )
+margin_left = 369.0
+margin_right = 433.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+
+[node name="Health6" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
+modulate = Color( 1, 0.454902, 0.454902, 1 )
+margin_left = 437.0
+margin_right = 501.0
 margin_bottom = 64.0
 texture = ExtResource( 7 )
 
