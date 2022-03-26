@@ -44,7 +44,7 @@ func _input(event):
 			hoverButton = newButton
 		elif !newButton and activeButton:
 			var obj = get_or_create_preview()
-			obj.position = event.position
+			obj.position = activeButton.position_filter(event.position)
 	
 	elif event is InputEventMouseButton and event.pressed:
 		#Is mouse over a button
@@ -60,7 +60,7 @@ func _input(event):
 			destroy_preview_object()
 			var enemy = activeButton.get_spawn_object().instance()
 			get_owner().add_child(enemy)
-			enemy.position = event.position
+			enemy.position = activeButton.position_filter(event.position)
 			activeButton = null
 
 # Declare member variables here. Examples:
