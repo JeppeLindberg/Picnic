@@ -2,6 +2,8 @@ extends RigidBody2D
 
 var _spawn_time: int
 
+var dead: bool = true
+
 
 func _ready():
 	_spawn_time = OS.get_ticks_msec()

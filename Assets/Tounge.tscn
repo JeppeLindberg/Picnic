@@ -8,6 +8,7 @@ radius = 19.0
 height = 58.0
 
 [node name="Tounge" type="RigidBody2D"]
+collision_mask = 0
 mode = 1
 script = ExtResource( 1 )
 

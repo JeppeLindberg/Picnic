@@ -5,6 +5,7 @@ var _Groups := preload("res://Scripts/Library/Groups.gd").new()
 const Pickup := preload("res://Assets/Pickup.tscn")
 
 export var money_drop_chance: float = 0.2
+var drops_money = true
 
 var initialized = false
 var start_pos: Vector2
@@ -68,14 +69,17 @@ func _physics_process(delta):
 	rotation = movement_vec.normalized().rotated(PI / 2).angle()
 	var collision = move_and_collide(movement_vec)
 	if collision and ! dead:
+		if collision.collider.is_in_group(_Groups.CAKE):
+			drops_money = false
 		collision.collider.collide()
 		collide()
 
 func collide():
 	dead = true
 	_ref_Nodes.remove_from_nodes(self)
-	if rng.randf() < money_drop_chance:
-		var new_node = Pickup.instance()
-		get_parent().add_child(new_node)
-		new_node.position = position
+	if drops_money:
+		if rng.randf() < money_drop_chance:
+			var new_node = Pickup.instance()
+			get_parent().add_child(new_node)
+			new_node.position = position
 	self.queue_free()

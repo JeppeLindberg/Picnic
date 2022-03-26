@@ -1,6 +1,7 @@
 extends Node2D
 
 const Enemy := preload("res://Assets/Enemy.tscn")
+const Pickup := preload("res://Assets/Pickup.tscn")
 var _Groups := preload("res://Scripts/Library/Groups.gd").new()
 
 var _health_display: = []
@@ -8,16 +9,22 @@ var _money_display: Label
 var _wave_display: Label
 var _enemy_spawn_top_left: Node2D
 var _enemy_spawn_bottom_right: Node2D
+var _reward_spawn_top_left: Node2D
+var _reward_spawn_bottom_right: Node2D
 var _cake : Node2D
 
-export var seconds_between_rounds = 5
-export var round_spawn_duration_base = 5.0
-export var round_spawn_duration_scaling = 1.0
-export var round_spawn_count_base = 10
-export var round_spawn_count_scaling = 5
+export var spawn_count_first_waves = [6, 14, 22, 36, 50]
+export var spawn_duration_first_waves = [5.0, 5.0, 5.0, 5.0, 5.0]
+export var money_reward_first_waves = [10, 12, 14, 16]
 
-var current_health = 5
-var current_money = 50
+export var seconds_between_rounds = 5
+export var round_spawn_duration_base = 4.0
+export var round_spawn_duration_scaling = 1.0
+export var round_spawn_count_base = 48
+export var round_spawn_count_scaling = 7
+
+var current_health = 6
+var current_money = 10
 
 var _current_wave = 0
 var _current_wave_start_time: int
@@ -129,9 +136,17 @@ func _process(delta):
 		_current_wave += 1
 		_ongoing_wave = true
 		_current_wave_start_time = OS.get_ticks_msec()
-		_current_wave_remaining_spawns = round_spawn_count_base + round_spawn_count_scaling * _current_wave
+		if _current_wave - 1 < spawn_count_first_waves.size():
+			_current_wave_remaining_spawns = spawn_count_first_waves[_current_wave-1]
+			_spawns_per_sec = _current_wave_remaining_spawns / spawn_duration_first_waves[_current_wave-1]
+		else:
+			_current_wave_remaining_spawns = round_spawn_count_base + round_spawn_count_scaling * pow((_current_wave-5), 2)
+			_spawns_per_sec = _current_wave_remaining_spawns / (round_spawn_duration_base + round_spawn_duration_scaling* (_current_wave-5) )
+		print("Wave: " + String(_current_wave))
+		print("  Enemies this wave: " + String(_current_wave_remaining_spawns))
+		print("  Spawns per sec: " + String(_spawns_per_sec))
 		_spawn_timer = 0
-		_spawns_per_sec = _current_wave_remaining_spawns / (round_spawn_duration_base + round_spawn_duration_scaling*_current_wave)
+		
 		update_display()
 	
 	if _ongoing_wave and (_current_wave_remaining_spawns > 0):
@@ -150,8 +165,23 @@ func spawn_enemy():
 	get_parent().add_child(enemy)
 	enemy.position = spawn_loc
 	enemy.pathfind(get_astar())
+			
+func spawn_rewards(amount):
+	for i in range(0, amount):
+		var x = rng.randf_range(_reward_spawn_top_left.global_position.x, _reward_spawn_bottom_right.global_position.x)
+		var y = rng.randf_range(_reward_spawn_top_left.global_position.y, _reward_spawn_bottom_right.global_position.y)
+		var spawn_loc = Vector2(x, y)
+		
+		var reward = Pickup.instance() as Node2D
+		get_parent().add_child(reward)
+		reward.position = spawn_loc
+		reward.pick_up()
 	
 func end_wave():
+	if _current_wave_remaining_spawns > 0:
+		return
+	if _current_wave - 1 < money_reward_first_waves.size():
+		spawn_rewards(money_reward_first_waves[_current_wave-1])
 	_ongoing_wave = false
 	_last_wave_end_time = OS.get_ticks_msec()
 
@@ -167,6 +197,8 @@ func _ready():
 	_wave_display = get_node("/root/MainScene/GUI/Top/WaveContainer/Label")
 	_enemy_spawn_top_left = get_node("/root/MainScene/EnemySpawn/TopLeft")
 	_enemy_spawn_bottom_right = get_node("/root/MainScene/EnemySpawn/BottomRight")
+	_reward_spawn_top_left = get_node("/root/MainScene/PickupSpawn/TopLeft")
+	_reward_spawn_bottom_right = get_node("/root/MainScene/PickupSpawn/BottomRight")
 	_cake = get_node("/root/MainScene/Cake")
 	_last_wave_end_time = OS.get_ticks_msec()
 	_ongoing_wave = false
