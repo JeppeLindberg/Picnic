@@ -6,13 +6,15 @@ class Test:
 const GameState := preload("res://Scripts/GameState.gd")
 var _ref_GameState: GameState
 
+export (NodePath) var marker
 export (Array, NodePath) var objects
 export (Color) var normal_color = Color.white
 export (Color) var invalid_color = Color.red
-export (Dictionary) var used_positions
+
 
 func _ready():
 	_ref_GameState = get_node("/root/MainScene/GameState")	
+	astar = _ref_GameState.create_astar(_ref_GameState.used_positions)
 	
 func query_buttons(position):
 	for obj in objects:
@@ -31,6 +33,8 @@ var activeButton = null
 # An object preview of what activeButton is
 var previewObject = null
 
+var astar = null
+
 func destroy_preview_object():
 	if previewObject:
 		previewObject.queue_free()
@@ -47,7 +51,7 @@ func _input(event):
 	var can_place = false
 	if activeButton:
 		rounded_position = activeButton.position_filter(event.position)
-		can_place = ! used_positions.has(rounded_position)
+		can_place = ! _ref_GameState.used_positions.has(rounded_position)
 		if previewObject:
 			previewObject.modulate = normal_color if can_place else invalid_color 
 		
@@ -60,6 +64,14 @@ func _input(event):
 		elif !newButton and activeButton:
 			var obj = get_or_create_preview()
 			obj.position = rounded_position
+		else:
+			
+			var close = astar.get_closest_point(event.position)
+			var path = astar.get_point_path(close, 0)		
+			print("path, from " + str(close) + ", " + str(event.position) + ", " + str(path.size()) + " nodes, connected = " + str(astar.are_points_connected(close, 0)))
+
+			get_node(marker).points = path
+			
 	
 	elif event is InputEventMouseButton and event.pressed:
 		#Is mouse over a button
@@ -81,4 +93,5 @@ func _input(event):
 				print("Not enough money")
 			destroy_preview_object()
 			activeButton = null
-			used_positions[rounded_position] = true
+			_ref_GameState.used_positions[rounded_position] = true
+			astar = _ref_GameState.create_astar(_ref_GameState.used_positions)
