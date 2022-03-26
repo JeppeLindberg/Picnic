@@ -39,6 +39,9 @@ func _process(delta):
 		_sprite.rotation = _rot * (PI * 2)
 
 func hover_mouse():
+	pick_up()
+
+func pick_up():
 	if not _picked_up:
 		_picked_up = true
 		_picked_up_time = OS.get_ticks_msec()
