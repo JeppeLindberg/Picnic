@@ -4,7 +4,7 @@ var _Groups := preload("res://Scripts/Library/Groups.gd").new()
 
 export var targeting_range: float
 export var price: int
-export var shooting_cooldown = 1
+export var shooting_cooldown = 4
 var bullet_timer: float = 0.3
 
 

@@ -39,6 +39,8 @@ position = Vector2( 830, 302 )
 
 [node name="GameState" type="Node2D" parent="."]
 script = ExtResource( 6 )
+end_index = 760
+lanes = 10
 
 [node name="GUI" type="MarginContainer" parent="."]
 margin_left = 2.0

@@ -4,7 +4,7 @@ var _Groups := preload("res://Scripts/Library/Groups.gd").new()
 
 export var targeting_range: float = 200
 export var price: int = 20
-export var bullets_per_second: float = 2
+export var shooting_cooldown = 2
 export var inaccuracy_degrees: float = 20
 var bullet_timer: float = 0.3
 
@@ -21,7 +21,7 @@ func _ready():
 	_bullet_emitters.append(get_node("./BulletEmitter2"))
 
 func _process(delta):
-	bullet_timer += delta * bullets_per_second
+	bullet_timer += delta
 	var enemy_nodes = _ref_Nodes.get_all_nodes_in_group(_Groups.ENEMY)
 	var enemy_found = false
 	
@@ -37,8 +37,8 @@ func _process(delta):
 	
 	if enemy_found:
 		rotation = (closest_enemy.position - position).normalized().rotated(PI / 2).angle()
-		if bullet_timer > 1:
-			bullet_timer -= 1
+		if bullet_timer > shooting_cooldown:
+			bullet_timer -= shooting_cooldown
 			
 			var new_node = Bullet.instance() as Node2D
 			var current_emitter = _prev_emitter + 1
@@ -67,5 +67,5 @@ func _process(delta):
 		$BadgerIdle.visible = true
 	
 	if not enemy_found:
-		if bullet_timer > 1:
-			bullet_timer = 1
+		if bullet_timer > shooting_cooldown:
+			bullet_timer = shooting_cooldown
