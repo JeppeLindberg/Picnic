@@ -48,13 +48,6 @@ func _process(delta):
 			new_node.global_rotation = global_rotation
 			last_emit = OS.get_ticks_msec()
 	
-	if bullet_timer < 0.2:
-		$FrogShoot.visible = true
-		$FrogIdle.visible = false
-	else:
-		$FrogShoot.visible = false
-		$FrogIdle.visible = true
-	
 	if not enemy_found:
 		if bullet_timer > shooting_cooldown:
 			bullet_timer = shooting_cooldown
