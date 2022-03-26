@@ -71,3 +71,4 @@ objects = [ NodePath("Button") ]
 texture = ExtResource( 7 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 4 )
+preview_object = ExtResource( 4 )

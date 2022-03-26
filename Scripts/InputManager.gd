@@ -24,26 +24,40 @@ var activeButton = null
 # An object preview of what activeButton is
 var previewObject = null
 
+func destroy_preview_object():
+	if previewObject:
+		previewObject.queue_free()
+		previewObject = null
+		
+func get_or_create_preview():
+	if !previewObject:
+		previewObject = activeButton.get_preview_object().instance()
+		get_owner().add_child(previewObject)
+	return previewObject
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		var newButton = query_buttons(event.position)
 		if newButton != hoverButton: 
 			print("Changing active button from {from} to {to}".format({"from": activeButton, "to": newButton}))
+			destroy_preview_object()
 			hoverButton = newButton
+		elif !newButton and activeButton:
+			var obj = get_or_create_preview()
+			obj.position = event.position
 	
 	elif event is InputEventMouseButton and event.pressed:
 		#Is mouse over a button
 		if hoverButton != null:
 			print("click() on sprite")
-			if previewObject:
-				previewObject.queue_free()
-				previewObject = null
+			destroy_preview_object()
 			if activeButton == hoverButton:
 				activeButton = null
 			else:
 				activeButton = hoverButton
 		#Or a button has been clicked
 		elif activeButton:
+			destroy_preview_object()
 			var enemy = activeButton.get_spawn_object().instance()
 			get_owner().add_child(enemy)
 			enemy.position = event.position
