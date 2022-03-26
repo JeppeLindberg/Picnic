@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/UI/Flower1.png" type="Texture" id=2]
@@ -19,8 +19,10 @@
 [ext_resource path="res://Resources/UI/Strawberry4.png" type="Texture" id=17]
 [ext_resource path="res://Resources/UI/Strawberry5.png" type="Texture" id=18]
 [ext_resource path="res://Resources/UI/Mousecost.png" type="Texture" id=19]
-[ext_resource path="res://Assets/OwlTower.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Assets/OwlTowerPreview.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Assets/BadgerTower.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Assets/BadgerTowerPreview.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Resources/UI/BadgerIcon.png" type="Texture" id=22]
+[ext_resource path="res://Resources/UI/BadgerCost.png" type="Texture" id=23]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -37,7 +39,7 @@ position = Vector2( 830, 302 )
 
 [node name="GameState" type="Node2D" parent="."]
 script = ExtResource( 6 )
-end_index = 800
+end_index = 760
 lanes = 10
 
 [node name="GUI" type="MarginContainer" parent="."]
@@ -136,9 +138,9 @@ texture = ExtResource( 15 )
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
 marker = NodePath("../PathfindDebug")
-objects = [ NodePath("Button"), NodePath("Owl") ]
+objects = [ NodePath("Mouse"), NodePath("Badger") ]
 
-[node name="Button" type="Sprite" parent="InputManager"]
+[node name="Mouse" type="Sprite" parent="InputManager"]
 position = Vector2( 37, 37 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 13 )
@@ -146,19 +148,23 @@ script = ExtResource( 8 )
 spawn_object = ExtResource( 4 )
 preview_object = ExtResource( 11 )
 
-[node name="Owl" type="Sprite" parent="InputManager"]
-modulate = Color( 0.960784, 1, 0.317647, 1 )
+[node name="Badger" type="Sprite" parent="InputManager"]
 position = Vector2( 37, 111 )
 scale = Vector2( 0.546875, 0.546875 )
-texture = ExtResource( 13 )
+texture = ExtResource( 22 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 20 )
 preview_object = ExtResource( 21 )
 
 [node name="Mousecost" type="Sprite" parent="InputManager"]
 position = Vector2( 59, 67 )
-scale = Vector2( 0.385542, 0.385542 )
+scale = Vector2( 0.289157, 0.289157 )
 texture = ExtResource( 19 )
+
+[node name="BadgerCost" type="Sprite" parent="InputManager"]
+position = Vector2( 90, 128 )
+scale = Vector2( 0.362637, 0.362637 )
+texture = ExtResource( 23 )
 
 [node name="EnemySpawn" type="Node2D" parent="."]
 position = Vector2( -192, 66 )

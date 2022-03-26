@@ -87,9 +87,12 @@ func reset_pathfinding():
 	for enemy in get_tree().get_nodes_in_group(_Groups.ENEMY):
 		enemy.pathfind(get_astar())
 
-func lose_money(subtraction):
-	current_money -= subtraction
-	
+func gain_money(amount):
+	current_money += amount
+	update_display()
+
+func lose_money(amount):
+	current_money -= amount
 	update_display()
 
 func lose_health():
