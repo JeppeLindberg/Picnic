@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Themes/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Menu/StartButton.gd" type="Script" id=2]
+[ext_resource path="res://Resources/SmallHandwriting.tres" type="DynamicFont" id=3]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="GUI" type="MarginContainer" parent="."]
+margin_right = 1025.0
+margin_bottom = 600.0
+
+[node name="MainContainer" type="VBoxContainer" parent="GUI"]
+margin_right = 1025.0
+margin_bottom = 600.0
+
+[node name="Title" type="Label" parent="GUI/MainContainer"]
+margin_right = 1025.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 132, 200 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Picnic Panic"
+align = 1
+valign = 2
+
+[node name="Empty" type="Panel" parent="GUI/MainContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 204.0
+margin_right = 1025.0
+margin_bottom = 279.0
+rect_min_size = Vector2( 150, 75 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/MainContainer"]
+margin_top = 283.0
+margin_right = 1025.0
+margin_bottom = 383.0
+alignment = 1
+
+[node name="StartButton" type="Button" parent="GUI/MainContainer/HBoxContainer"]
+margin_left = 362.0
+margin_right = 662.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+theme = ExtResource( 1 )
+text = "Start"
+script = ExtResource( 2 )
+
+[node name="Credits" type="Label" parent="GUI/MainContainer"]
+margin_top = 387.0
+margin_right = 1025.0
+margin_bottom = 587.0
+rect_min_size = Vector2( 132, 200 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Asger Horn Brorholt
+Johannes Elgaard
+Jeppe Wehner Lindberg
+
+Special thanks: Create Jam, Game Hub Denmark"
+align = 1
+valign = 2
