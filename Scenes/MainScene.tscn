@@ -1,17 +1,23 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
+[ext_resource path="res://Resources/UI/Flower1.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/InputManager.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Tower.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Cake.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/GameState.gd" type="Script" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://Resources/UI/Strawberry1.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/PlaceableTemplate.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Nodes.gd" type="Script" id=9]
 [ext_resource path="res://Resources/Themes/Theme.tres" type="Theme" id=10]
 [ext_resource path="res://Assets/TowerPreview.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/PicnicClothBackground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Resources/UI/MouseIcon.png" type="Texture" id=13]
+[ext_resource path="res://Resources/UI/Strawberry2.png" type="Texture" id=14]
+[ext_resource path="res://Resources/UI/Strawberry6.png" type="Texture" id=15]
+[ext_resource path="res://Resources/UI/Strawberry3.png" type="Texture" id=16]
+[ext_resource path="res://Resources/UI/Strawberry4.png" type="Texture" id=17]
+[ext_resource path="res://Resources/UI/Strawberry5.png" type="Texture" id=18]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -66,11 +72,10 @@ margin_bottom = 536.0
 alignment = 2
 
 [node name="Money" type="TextureRect" parent="GUI/RightBottom/MoneyContainer"]
-modulate = Color( 0.87451, 1, 0, 1 )
-margin_left = 823.0
+margin_left = 831.0
 margin_right = 887.0
 margin_bottom = 64.0
-texture = ExtResource( 7 )
+texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="GUI/RightBottom/MoneyContainer"]
 margin_left = 891.0
@@ -88,46 +93,40 @@ margin_bottom = 604.0
 alignment = 2
 
 [node name="Health1" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-modulate = Color( 1, 0.454902, 0.454902, 1 )
 margin_left = 619.0
 margin_right = 683.0
 margin_bottom = 64.0
 texture = ExtResource( 7 )
 
 [node name="Health2" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-modulate = Color( 1, 0.454902, 0.454902, 1 )
 margin_left = 687.0
 margin_right = 751.0
 margin_bottom = 64.0
-texture = ExtResource( 7 )
+texture = ExtResource( 14 )
 
 [node name="Health3" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-modulate = Color( 1, 0.454902, 0.454902, 1 )
 margin_left = 755.0
 margin_right = 819.0
 margin_bottom = 64.0
-texture = ExtResource( 7 )
+texture = ExtResource( 16 )
 
 [node name="Health4" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-modulate = Color( 1, 0.454902, 0.454902, 1 )
 margin_left = 823.0
 margin_right = 887.0
 margin_bottom = 64.0
-texture = ExtResource( 7 )
+texture = ExtResource( 17 )
 
 [node name="Health5" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-modulate = Color( 1, 0.454902, 0.454902, 1 )
 margin_left = 891.0
 margin_right = 955.0
 margin_bottom = 64.0
-texture = ExtResource( 7 )
+texture = ExtResource( 18 )
 
 [node name="Health6" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-modulate = Color( 1, 0.454902, 0.454902, 1 )
 margin_left = 959.0
 margin_right = 1023.0
 margin_bottom = 64.0
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
