@@ -68,7 +68,7 @@ func _input(event):
 			
 			var close = astar.get_closest_point(event.position)
 			var path = astar.get_point_path(close, 0)		
-			print("path, from " + str(close) + ", " + str(event.position) + ", " + str(path.size()) + " nodes, connected = " + str(astar.are_points_connected(close, 0)))
+			# print("path, from " + str(close) + ", " + str(event.position) + ", " + str(path.size()) + " nodes, connected = " + str(astar.are_points_connected(close, 0)))
 
 			get_node(marker).points = path
 			

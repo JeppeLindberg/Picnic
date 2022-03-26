@@ -16,11 +16,15 @@ export (int) var grid_size = 64
 func create_astar(dict):
 	var astar = AStar2D.new()
 	var goal_point = 0
+	var start_point = 1
 	# Goal point is free to travel to
-	astar.add_point(goal_point, Vector2(1000, 0), 1)
-	
+	astar.add_point(goal_point, Vector2(10000, 0), 1)
+	astar.add_point(start_point, Vector2(-10000, 0), 1)
 	# Map to next point in line over a lane, for easier connection
 	var previous_point = {}
+	
+	for	yindex in range(lanes):
+		previous_point[yindex] = start_point
 	
 	for x in range(start_index, end_index + grid_size, grid_size):
 		for yindex in range(lanes):
@@ -28,12 +32,16 @@ func create_astar(dict):
 			var pos = Vector2(x, y)
 			var point = astar.get_available_point_id()
 			if ! dict.has(pos):
-				astar.add_point(point, pos, 1) # Future, weight cost should increase slightly to convince ants to change lane as late as possible
+				astar.add_point(point, pos, 100) # Future, weight cost should increase slightly to convince ants to change lane as late as possible
 				if previous_point.get(yindex) != null:
-					
 					astar.connect_points(point, previous_point[yindex])
-					print("Connecting " + str(previous_point[yindex]) + ", " + str(point))
-				
+					# print("Connecting " + str(previous_point[yindex]) + ", " + str(point))
+					
+					#previous_point[yindex-1] has already been updated or removed, so we can simply query its existence for sideways connection
+					if previous_point.has(yindex - 1):
+						astar.connect_points(point, previous_point[yindex - 1])
+					
+					
 				previous_point[yindex] = point
 			else:
 				previous_point.erase(yindex)
