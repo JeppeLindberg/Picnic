@@ -37,7 +37,7 @@ func lose_health():
 	current_health -= 1
 	
 	if current_health == 0:
-		print("Game over")
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
 	
 	update_display()
 
