@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/UI/Flower1.png" type="Texture" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://Resources/UI/BadgerCost.png" type="Texture" id=23]
 [ext_resource path="res://Assets/FrogTower.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Assets/FrogTowerPreview.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Assets/CoffeeCup.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Assets/CoffeeCupPreview.tscn" type="PackedScene" id=27]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -37,7 +39,7 @@ z_index = -10
 script = ExtResource( 9 )
 
 [node name="Cake" parent="." instance=ExtResource( 5 )]
-position = Vector2( 830, 302 )
+position = Vector2( 1000, 302 )
 
 [node name="GameState" type="Node2D" parent="."]
 script = ExtResource( 6 )
@@ -140,7 +142,7 @@ texture = ExtResource( 15 )
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
 marker = NodePath("../PathfindDebug")
-objects = [ NodePath("Mouse"), NodePath("Badger"), NodePath("Frog"), NodePath("Fork") ]
+objects = [ NodePath("Mouse"), NodePath("Badger"), NodePath("Frog"), NodePath("Fork"), NodePath("CoffeeCup") ]
 
 [node name="Mouse" type="Sprite" parent="InputManager"]
 position = Vector2( 37, 37 )
@@ -175,6 +177,16 @@ scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 13 )
 script = ExtResource( 8 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 0, -64 ) ]
+price = 0
+
+[node name="CoffeeCup" type="Sprite" parent="InputManager"]
+position = Vector2( 42, 328 )
+scale = Vector2( 0.546875, 0.546875 )
+texture = ExtResource( 13 )
+script = ExtResource( 8 )
+spawn_object = ExtResource( 26 )
+preview_object = ExtResource( 27 )
+extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 64, 0 ), Vector2( 64, 64 ) ]
 price = 0
 
 [node name="Mousecost" type="Sprite" parent="InputManager"]
