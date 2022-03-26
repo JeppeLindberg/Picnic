@@ -76,11 +76,6 @@ func create_astar(dict):
 				if previous_point.has(yindex - 1):
 					astar.connect_points(point, previous_point[yindex - 1])
 				
-				#Diagional
-				if previous_point.has(yindex + 1):
-					astar.connect_points(point, previous_point[yindex + 1])
-				
-
 				previous_point[yindex] = point
 			else:
 				previous_point.erase(yindex)
