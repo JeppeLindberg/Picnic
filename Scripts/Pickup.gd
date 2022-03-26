@@ -4,8 +4,7 @@ export (Array, Texture) var flower_sprites
 
 var _Groups := preload("res://Scripts/Library/Groups.gd").new()
 
-const GameState := preload("res://Scripts/GameState.gd")
-var _ref_GameState: GameState
+var _ref_GameState: Node2D
 var _sprite: Node2D
 var _rot: float
 var _picked_up: bool = false
