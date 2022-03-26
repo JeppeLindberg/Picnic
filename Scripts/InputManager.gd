@@ -49,6 +49,14 @@ func _input(event):
 	if activeButton:
 		rounded_position = activeButton.position_filter(event.position)
 		can_place = ! _ref_GameState.used_positions.has(rounded_position)
+		
+		#Check if placing would prevent pathfind
+		var expandedPositions = _ref_GameState.used_positions.duplicate()
+		expandedPositions[rounded_position] = true
+		var newastar = _ref_GameState.create_astar(expandedPositions)
+		var route = newastar.get_point_path(1, 0)
+		can_place = can_place and (! route.empty())
+		
 		if previewObject:
 			previewObject.modulate = normal_color if can_place else invalid_color 
 		
