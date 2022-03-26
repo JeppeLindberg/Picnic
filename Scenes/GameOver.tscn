@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Themes/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/Menu/MenuButton.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Menu/Retry.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Decoration/Flower3__Large.png" type="Texture" id=4]
+[ext_resource path="res://Assets/PicnicClothBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/Decoration/Pencil.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Decoration/Flower1__Large.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Decoration/Strawberry1__Large.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Decoration/Flower2__Large.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Decoration/Strawberry3__Large.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Decoration/Strawberry4__Large.png" type="Texture" id=11]
 
 [node name="TitleScreen" type="Node2D"]
 
@@ -61,3 +69,48 @@ rect_min_size = Vector2( 300, 100 )
 theme = ExtResource( 1 )
 text = "Retry"
 script = ExtResource( 3 )
+
+[node name="PicnicClothBackground" parent="." instance=ExtResource( 5 )]
+modulate = Color( 0.639216, 0.639216, 0.639216, 1 )
+position = Vector2( 369, 422 )
+z_index = -2
+
+[node name="Pencil" type="Sprite" parent="."]
+position = Vector2( 946, 560 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="Strawberry2Large" type="Sprite" parent="."]
+position = Vector2( 609, 64 )
+rotation = -3.12594
+scale = Vector2( 0.74934, 0.74934 )
+z_index = -1
+texture = ExtResource( 10 )
+
+[node name="Strawberry2Large2" type="Sprite" parent="."]
+position = Vector2( 93, 127 )
+rotation = -1.57601
+scale = Vector2( 0.74934, 0.74934 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="Flower1Large" type="Sprite" parent="."]
+position = Vector2( 902, 154 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="Strawberry1Large" type="Sprite" parent="."]
+position = Vector2( -63, 562 )
+scale = Vector2( 0.781003, 0.781003 )
+z_index = -1
+texture = ExtResource( 8 )
+
+[node name="Flower2Large" type="Sprite" parent="."]
+position = Vector2( 237, 108 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="Flower3Large" type="Sprite" parent="."]
+position = Vector2( 795, 406 )
+z_index = -1
+texture = ExtResource( 4 )
