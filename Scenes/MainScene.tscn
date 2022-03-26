@@ -1,7 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/InputManager.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Tower.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Cake.tscn" type="PackedScene" id=5]
@@ -151,10 +150,13 @@ spawn_object = ExtResource( 4 )
 preview_object = ExtResource( 11 )
 
 [node name="EnemySpawn" type="Node2D" parent="."]
-position = Vector2( -226, 75 )
+position = Vector2( -192, 66 )
 
 [node name="TopLeft" type="Node2D" parent="EnemySpawn"]
 position = Vector2( 15, 35 )
 
 [node name="BottomRight" type="Node2D" parent="EnemySpawn"]
 position = Vector2( 123, 436 )
+
+[node name="Tower2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 304, 340 )

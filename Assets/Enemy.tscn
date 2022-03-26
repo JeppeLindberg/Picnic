@@ -21,7 +21,7 @@ animations = [ {
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 2 )
-speed = 20.0
+speed = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
