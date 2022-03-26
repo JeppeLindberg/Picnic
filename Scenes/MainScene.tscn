@@ -85,7 +85,7 @@ spawn_object = ExtResource( 27 )
 preview_object = ExtResource( 27 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 0, -64 ) ]
 price = 0
-limit = 1
+limit = 3
 
 [node name="CoffeeCup" type="Sprite" parent="InputManager"]
 position = Vector2( 319, 46 )
