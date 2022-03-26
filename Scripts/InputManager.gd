@@ -23,6 +23,8 @@ func query_buttons(position):
 		var node = get_node(obj)
 		var texture = node.texture
 		var size = texture.get_size() / 2
+		size.x *= node.scale.x
+		size.y *= node.scale.y
 		var dist  = (node.position - position).abs()
 		if size.x > dist.x and size.y > dist.y and node.visible:
 			return node
