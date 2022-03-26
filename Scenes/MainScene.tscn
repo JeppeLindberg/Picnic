@@ -140,7 +140,7 @@ texture = ExtResource( 15 )
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
 marker = NodePath("../PathfindDebug")
-objects = [ NodePath("Mouse"), NodePath("Badger"), NodePath("Fork") ]
+objects = [ NodePath("Mouse"), NodePath("Badger"), NodePath("Frog"), NodePath("Fork") ]
 
 [node name="Mouse" type="Sprite" parent="InputManager"]
 position = Vector2( 37, 37 )

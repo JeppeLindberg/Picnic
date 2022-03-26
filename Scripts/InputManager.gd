@@ -12,6 +12,7 @@ export (NodePath) var marker
 export (Array, NodePath) var objects
 export (Color) var normal_color = Color.white
 export (Color) var invalid_color = Color.red
+export (int) var minYPlace = 65
 
 
 func _ready():
@@ -57,11 +58,14 @@ func _physics_process(delta):
 func _input(event):
 	var rounded_position = Vector2(-1000, -1000)
 	var can_place = false
+	
 	if activeButton and "position" in event: #EventKey
 		rounded_position = activeButton.position_filter(event.position)
 		#price check
 		can_place =  _ref_GameState.current_money >= activeButton.price
 		
+		#location backup
+		can_place = can_place and rounded_position.y > minYPlace
 		
 		#astar prep
 		var expandedPositions = _ref_GameState.used_positions.duplicate()

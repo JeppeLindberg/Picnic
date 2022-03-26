@@ -35,6 +35,7 @@ var cached_astar = null
 export (Dictionary) var used_positions
 export (int) var start_index
 export (int) var end_index
+export (int) var start_lane = 2
 export (int) var lanes
 export (int) var grid_size = 64
 
@@ -55,11 +56,11 @@ func create_astar(dict):
 	var previous_point = {}
 	var older_points = {}
 	
-	for	yindex in range(lanes):
+	for	yindex in range(start_lane, lanes):
 		previous_point[yindex] = start_point
 	
 	for x in range(start_index, end_index + grid_size, grid_size):
-		for yindex in range(lanes):
+		for yindex in range(start_lane, lanes):
 			
 			var y = yindex *  grid_size
 			var pos = Vector2(x, y)
@@ -83,7 +84,7 @@ func create_astar(dict):
 				previous_point[yindex] = point
 			else:
 				previous_point.erase(yindex)
-		for yindex in range(lanes-1):
+		for yindex in range(start_lane, lanes-1):
 			if previous_point.get(yindex) and older_points.get(yindex) and previous_point.get(yindex + 1) and older_points.get(yindex +1):
 				astar.connect_points(previous_point[yindex], older_points[yindex+1])
 				astar.connect_points(previous_point[yindex+1], older_points[yindex])
