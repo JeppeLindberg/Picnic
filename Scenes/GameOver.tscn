@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Themes/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Menu/MenuButton.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Menu/Retry.gd" type="Script" id=3]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="GUI" type="MarginContainer" parent="."]
+margin_right = 1025.0
+margin_bottom = 600.0
+
+[node name="MainContainer" type="VBoxContainer" parent="GUI"]
+margin_right = 1025.0
+margin_bottom = 600.0
+
+[node name="Empty" type="Panel" parent="GUI/MainContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1025.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 300, 200 )
+
+[node name="GameOver" type="Label" parent="GUI/MainContainer"]
+margin_top = 204.0
+margin_right = 1025.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 132, 200 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Game Over"
+align = 1
+valign = 2
+
+[node name="Empty2" type="Panel" parent="GUI/MainContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 408.0
+margin_right = 1025.0
+margin_bottom = 438.0
+rect_min_size = Vector2( 300, 30 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/MainContainer"]
+margin_top = 442.0
+margin_right = 1025.0
+margin_bottom = 542.0
+alignment = 1
+
+[node name="MenuButton" type="Button" parent="GUI/MainContainer/HBoxContainer"]
+margin_left = 210.0
+margin_right = 510.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+theme = ExtResource( 1 )
+text = "Main Menu"
+script = ExtResource( 2 )
+
+[node name="Retry" type="Button" parent="GUI/MainContainer/HBoxContainer"]
+margin_left = 514.0
+margin_right = 814.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+theme = ExtResource( 1 )
+text = "Retry"
+script = ExtResource( 3 )
