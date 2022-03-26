@@ -14,7 +14,6 @@ export (Color) var invalid_color = Color.red
 
 func _ready():
 	_ref_GameState = get_node("/root/MainScene/GameState")	
-	astar = _ref_GameState.create_astar(_ref_GameState.used_positions)
 	
 func query_buttons(position):
 	for obj in objects:
@@ -32,8 +31,6 @@ var hoverButton = null
 var activeButton = null
 # An object preview of what activeButton is
 var previewObject = null
-
-var astar = null
 
 func destroy_preview_object():
 	if previewObject:
@@ -64,14 +61,7 @@ func _input(event):
 		elif !newButton and activeButton:
 			var obj = get_or_create_preview()
 			obj.position = rounded_position
-		else:
-			
-			var close = astar.get_closest_point(event.position)
-			var path = astar.get_point_path(close, 0)		
-			# print("path, from " + str(close) + ", " + str(event.position) + ", " + str(path.size()) + " nodes, connected = " + str(astar.are_points_connected(close, 0)))
-
-			get_node(marker).points = path
-			
+	
 	
 	elif event is InputEventMouseButton and event.pressed:
 		#Is mouse over a button
@@ -94,4 +84,4 @@ func _input(event):
 			destroy_preview_object()
 			activeButton = null
 			_ref_GameState.used_positions[rounded_position] = true
-			astar = _ref_GameState.create_astar(_ref_GameState.used_positions)
+			_ref_GameState.reset_pathfinding()

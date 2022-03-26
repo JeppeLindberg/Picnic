@@ -1,6 +1,7 @@
 extends Node2D
 
 const Enemy := preload("res://Assets/Enemy.tscn")
+var _Groups := preload("res://Scripts/Library/Groups.gd").new()
 
 var _health_display: = []
 var _money_display: Label
@@ -80,6 +81,11 @@ func create_astar(dict):
 		astar.connect_points(p, goal_point)
 	
 	return astar
+
+func reset_pathfinding():
+	cached_astar = null
+	for enemy in get_tree().get_nodes_in_group(_Groups.ENEMY):
+		enemy.pathfind(get_astar())
 
 func lose_money(subtraction):
 	current_money -= subtraction
