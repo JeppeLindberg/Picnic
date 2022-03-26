@@ -53,12 +53,18 @@ func _process(delta):
 			
 			_prev_emitter = current_emitter
 	
-	if bullet_timer < 0.2:
-		$OwlShoot.visible = true
-		$OwlIdle.visible = false
+	if bullet_timer < 0.2 and _prev_emitter % 2 == 0:
+		$BadgerShootLeft.visible = true
+		$BadgerShootRight.visible = false
+		$BadgerIdle.visible = false
+	elif bullet_timer < 0.2 and _prev_emitter % 2 == 1:
+		$BadgerShootLeft.visible = false
+		$BadgerShootRight.visible = true
+		$BadgerIdle.visible = false
 	else:
-		$OwlShoot.visible = false
-		$OwlIdle.visible = true
+		$BadgerShootLeft.visible = false
+		$BadgerShootRight.visible = false
+		$BadgerIdle.visible = true
 	
 	if not enemy_found:
 		if bullet_timer > 1:

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Towers/BadgerIdle.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/OwlTower.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Towers/BadgerShootRight.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Towers/BadgerShootLeft.png" type="Texture" id=4]
+
+[node name="BadgerTower" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BadgerIdle" type="Sprite" parent="."]
+scale = Vector2( 0.16955, 0.16955 )
+texture = ExtResource( 1 )
+
+[node name="BadgerShootLeft" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -1.90735e-06 )
+scale = Vector2( 0.17301, 0.17301 )
+texture = ExtResource( 4 )
+
+[node name="BadgerShootRight" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -2.23734e-06 )
+scale = Vector2( 0.176471, 0.176471 )
+texture = ExtResource( 3 )
+
+[node name="BulletEmitter1" type="Node2D" parent="."]
+visible = false
+position = Vector2( -33, -28 )
+
+[node name="BulletEmitter2" type="Node2D" parent="."]
+visible = false
+position = Vector2( 37, -32 )
