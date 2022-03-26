@@ -11,6 +11,18 @@ export var speed: float
 const Nodes := preload("res://Scripts/Nodes.gd")
 var _ref_Nodes: Nodes
 
+var path : PoolVector2Array
+
+func set_route(points : PoolVector2Array):
+	path = points
+
+func pathfind(astar : AStar2D):
+	var start_point = astar.get_closest_point(position)
+	var route = astar.get_point_path(start_point, 0)
+	if route.empty():
+		print("Enemy unable to find path. This should never happen")
+		route.push_back(target_pos)
+	set_route(route)
 
 func _ready():
 	add_to_group(_Groups.ENEMY)
@@ -25,7 +37,14 @@ func _process(delta):
 			initialized = true
 
 func _physics_process(delta):
-	var movement_vec = (target_pos - position).normalized() * delta * speed
+	var distance_to_next_node =  (path[0] - position).length()
+	var time_to_next_node = distance_to_next_node / speed;
+	if (delta > time_to_next_node):
+		print("Corner!")
+		path.remove(0)
+	
+	
+	var movement_vec = (path[0] - position).normalized() * delta * speed
 	rotation = movement_vec.normalized().rotated(PI / 2).angle()
 	var collision = move_and_collide(movement_vec)
 	if collision:

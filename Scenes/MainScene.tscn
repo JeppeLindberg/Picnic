@@ -35,6 +35,8 @@ position = Vector2( 830, 302 )
 
 [node name="GameState" type="Node2D" parent="."]
 script = ExtResource( 6 )
+end_index = 800
+lanes = 10
 
 [node name="GUI" type="MarginContainer" parent="."]
 margin_left = 2.0
@@ -131,6 +133,7 @@ texture = ExtResource( 15 )
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
+marker = NodePath("../PathfindDebug")
 objects = [ NodePath("Button") ]
 
 [node name="Button" type="Sprite" parent="InputManager"]
@@ -154,3 +157,5 @@ position = Vector2( 15, 35 )
 
 [node name="BottomRight" type="Node2D" parent="EnemySpawn"]
 position = Vector2( 123, 436 )
+
+[node name="PathfindDebug" type="Line2D" parent="."]

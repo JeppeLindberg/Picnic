@@ -7,6 +7,7 @@ var _money_display: Label
 var _wave_display: Label
 var _enemy_spawn_top_left: Node2D
 var _enemy_spawn_bottom_right: Node2D
+var _cake : Node2D
 
 export var seconds_between_rounds = 5
 export var round_spawn_duration_base = 5.0
@@ -25,7 +26,9 @@ var _last_wave_end_time: int
 var _ongoing_wave: bool
 var _spawn_timer: float
 
+
 var rng = RandomNumberGenerator.new()
+var cached_astar = null
 
 # Not sure it actually has a use as export, but I'm thinking it could be for pre-occopied positions
 export (Dictionary) var used_positions
@@ -34,12 +37,18 @@ export (int) var end_index
 export (int) var lanes
 export (int) var grid_size = 64
 
+func get_astar():
+	if ! cached_astar:
+		cached_astar = create_astar(used_positions)
+	
+	return cached_astar
+
 func create_astar(dict):
 	var astar = AStar2D.new()
 	var goal_point = 0
 	var start_point = 1
 	# Goal point is free to travel to
-	astar.add_point(goal_point, Vector2(10000, 0), 1)
+	astar.add_point(goal_point, _cake.position, 1)
 	astar.add_point(start_point, Vector2(-10000, 0), 1)
 	# Map to next point in line over a lane, for easier connection
 	var previous_point = {}
@@ -120,6 +129,7 @@ func spawn_enemy():
 	var enemy = Enemy.instance() as Node2D
 	get_parent().add_child(enemy)
 	enemy.position = spawn_loc
+	enemy.pathfind(get_astar())
 	
 func end_wave():
 	_ongoing_wave = false
@@ -137,7 +147,7 @@ func _ready():
 	_wave_display = get_node("/root/MainScene/GUI/Top/WaveContainer/Label")
 	_enemy_spawn_top_left = get_node("/root/MainScene/EnemySpawn/TopLeft")
 	_enemy_spawn_bottom_right = get_node("/root/MainScene/EnemySpawn/BottomRight")
-	
+	_cake = get_node("/root/MainScene/Cake")
 	_last_wave_end_time = OS.get_ticks_msec()
 	_ongoing_wave = false
 	

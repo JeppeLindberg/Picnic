@@ -4,11 +4,13 @@ var _Groups := preload("res://Scripts/Library/Groups.gd").new()
 
 export var targeting_range: float
 export var price: int
+export var shoot_cooldown = 4
 var bullet_timer: float
 
 const Bullet := preload("res://Assets/Bullet.tscn")
 const Nodes := preload("res://Scripts/Nodes.gd")
 var _ref_Nodes: Nodes
+
 
 
 func _ready():
@@ -31,8 +33,8 @@ func _process(delta):
 	
 	if enemy_found:
 		rotation = (closest_enemy.position - position).normalized().rotated(PI / 2).angle()
-		if bullet_timer > 1:
-			bullet_timer -= 1
+		if bullet_timer > shoot_cooldown:
+			bullet_timer -= shoot_cooldown
 			
 			var new_node = Bullet.instance() as Node2D
 			get_parent().add_child(new_node)
@@ -49,5 +51,5 @@ func _process(delta):
 		$MouseIdle.visible = true
 	
 	if not enemy_found:
-		if bullet_timer > 1:
-			bullet_timer = 1
+		if bullet_timer > shoot_cooldown:
+			bullet_timer = shoot_cooldown
