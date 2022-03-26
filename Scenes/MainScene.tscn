@@ -59,36 +59,41 @@ margin_bottom = 604.0
 margin_right = 1023.0
 margin_bottom = 64.0
 
+[node name="Panel" type="Panel" parent="GUI/Top/WaveContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 256.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 256, 0 )
+
 [node name="Label" type="Label" parent="GUI/Top/WaveContainer"]
+margin_left = 260.0
 margin_right = 1023.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 132, 64 )
 size_flags_horizontal = 3
 theme = ExtResource( 10 )
 text = "Wave 0"
-align = 1
 valign = 2
 
-[node name="RightBottom" type="VBoxContainer" parent="GUI"]
+[node name="RightBottom" type="HBoxContainer" parent="GUI"]
 margin_right = 1023.0
 margin_bottom = 604.0
 alignment = 2
 
 [node name="MoneyContainer" type="HBoxContainer" parent="GUI/RightBottom"]
-margin_top = 472.0
-margin_right = 1023.0
-margin_bottom = 536.0
+margin_left = 423.0
+margin_right = 615.0
+margin_bottom = 64.0
 alignment = 2
 
 [node name="Money" type="TextureRect" parent="GUI/RightBottom/MoneyContainer"]
-margin_left = 831.0
-margin_right = 887.0
+margin_right = 56.0
 margin_bottom = 64.0
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="GUI/RightBottom/MoneyContainer"]
-margin_left = 891.0
-margin_right = 1023.0
+margin_left = 60.0
+margin_right = 192.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 132, 64 )
 theme = ExtResource( 10 )
@@ -96,45 +101,44 @@ text = " X 10"
 valign = 2
 
 [node name="HealthContainer" type="HBoxContainer" parent="GUI/RightBottom"]
-margin_top = 540.0
+margin_left = 619.0
 margin_right = 1023.0
 margin_bottom = 604.0
 alignment = 2
 
 [node name="Health1" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 619.0
-margin_right = 683.0
-margin_bottom = 64.0
+margin_right = 64.0
+margin_bottom = 604.0
 texture = ExtResource( 7 )
 
 [node name="Health2" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 687.0
-margin_right = 751.0
-margin_bottom = 64.0
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 604.0
 texture = ExtResource( 14 )
 
 [node name="Health3" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 755.0
-margin_right = 819.0
-margin_bottom = 64.0
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 604.0
 texture = ExtResource( 16 )
 
 [node name="Health4" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 823.0
-margin_right = 887.0
-margin_bottom = 64.0
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 604.0
 texture = ExtResource( 17 )
 
 [node name="Health5" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 891.0
-margin_right = 955.0
-margin_bottom = 64.0
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 604.0
 texture = ExtResource( 18 )
 
 [node name="Health6" type="TextureRect" parent="GUI/RightBottom/HealthContainer"]
-margin_left = 959.0
-margin_right = 1023.0
-margin_bottom = 64.0
+margin_left = 340.0
+margin_right = 404.0
+margin_bottom = 604.0
 texture = ExtResource( 15 )
 
 [node name="InputManager" type="Node2D" parent="."]
