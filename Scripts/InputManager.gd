@@ -57,7 +57,7 @@ func _physics_process(delta):
 func _input(event):
 	var rounded_position = Vector2(-1000, -1000)
 	var can_place = false
-	if activeButton:
+	if activeButton and "position" in event: #EventKey
 		rounded_position = activeButton.position_filter(event.position)
 		can_place = ! _ref_GameState.used_positions.has(rounded_position)
 		
