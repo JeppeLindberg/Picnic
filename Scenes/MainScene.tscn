@@ -168,6 +168,7 @@ spawn_object = ExtResource( 24 )
 preview_object = ExtResource( 11 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 0, -64 ) ]
 price = 0
+limit = 1
 
 [node name="Mousecost" type="Sprite" parent="InputManager"]
 position = Vector2( 59, 67 )

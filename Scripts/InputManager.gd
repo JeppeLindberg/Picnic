@@ -23,7 +23,7 @@ func query_buttons(position):
 		var texture = node.texture
 		var size = texture.get_size() / 2
 		var dist  = (node.position - position).abs()
-		if size.x > dist.x and size.y > dist.y:
+		if size.x > dist.x and size.y > dist.y and node.visible:
 			return node
 	return null
 
@@ -115,4 +115,9 @@ func _input(event):
 				var realPos = pos + rounded_position
 				_ref_GameState.used_positions[realPos] = true
 			_ref_GameState.reset_pathfinding()
+			
+			activeButton.limit -= 1
+			if activeButton.limit == 0:
+				activeButton.visible = false
+			
 			activeButton = null
