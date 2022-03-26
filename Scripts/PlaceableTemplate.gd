@@ -5,6 +5,7 @@ export (PackedScene) var preview_object
 export (Array, Vector2) var extraPositions = [Vector2(0, 0)]
 export (int) var price = 1
 export (int) var snap_pixels = 64
+export (int) var limit = -1
 
 func get_spawn_object():
 	return spawn_object

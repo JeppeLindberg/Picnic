@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/UI/Flower1.png" type="Texture" id=2]
@@ -25,8 +25,11 @@
 [ext_resource path="res://Resources/UI/BadgerCost.png" type="Texture" id=23]
 [ext_resource path="res://Assets/FrogTower.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Assets/FrogTowerPreview.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Assets/CoffeeCup.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Assets/CoffeeCupPreview.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Resources/UI/FrogIcon.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Fork.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Resources/UI/ForkIcon.png" type="Texture" id=28]
+[ext_resource path="res://Assets/CoffeeCup.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Assets/CoffeeCupPreview.tscn" type="PackedScene" id=30]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -165,7 +168,7 @@ price = 12
 [node name="Frog" type="Sprite" parent="InputManager"]
 position = Vector2( 38, 186 )
 scale = Vector2( 0.546875, 0.546875 )
-texture = ExtResource( 13 )
+texture = ExtResource( 26 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 24 )
 preview_object = ExtResource( 25 )
@@ -174,10 +177,13 @@ price = 50
 [node name="Fork" type="Sprite" parent="InputManager"]
 position = Vector2( 40, 257 )
 scale = Vector2( 0.546875, 0.546875 )
-texture = ExtResource( 13 )
+texture = ExtResource( 28 )
 script = ExtResource( 8 )
+spawn_object = ExtResource( 27 )
+preview_object = ExtResource( 27 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 0, -64 ) ]
 price = 0
+limit = 1
 
 [node name="CoffeeCup" type="Sprite" parent="InputManager"]
 position = Vector2( 42, 328 )
