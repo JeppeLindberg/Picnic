@@ -53,15 +53,18 @@ func create_astar(dict):
 	astar.add_point(start_point, Vector2(-10000, 0), 1)
 	# Map to next point in line over a lane, for easier connection
 	var previous_point = {}
+	var older_points = {}
 	
 	for	yindex in range(lanes):
 		previous_point[yindex] = start_point
 	
 	for x in range(start_index, end_index + grid_size, grid_size):
 		for yindex in range(lanes):
+			
 			var y = yindex *  grid_size
 			var pos = Vector2(x, y)
 			var point = astar.get_available_point_id()
+			older_points[yindex] = previous_point.get(yindex)
 			if ! dict.has(pos):
 				astar.add_point(point, pos, 100) # Future, weight cost should increase slightly to convince ants to change lane as late as possible
 				if previous_point.get(yindex) != null:
@@ -71,12 +74,20 @@ func create_astar(dict):
 				#previous_point[yindex-1] has already been updated or removed, so we can simply query its existence for sideways connection
 				if previous_point.has(yindex - 1):
 					astar.connect_points(point, previous_point[yindex - 1])
-					
-					
+				
+				#Diagional
+				if previous_point.has(yindex + 1):
+					astar.connect_points(point, previous_point[yindex + 1])
+				
+
 				previous_point[yindex] = point
 			else:
 				previous_point.erase(yindex)
-	
+		for yindex in range(lanes-1):
+			if previous_point.get(yindex) and older_points.get(yindex) and previous_point.get(yindex + 1) and older_points.get(yindex +1):
+				astar.connect_points(previous_point[yindex], older_points[yindex+1])
+				astar.connect_points(previous_point[yindex+1], older_points[yindex])
+			
 	for p in previous_point.values():
 		astar.connect_points(p, goal_point)
 	

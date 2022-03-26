@@ -7,7 +7,7 @@
 [node name="Tower" type="Node2D"]
 script = ExtResource( 2 )
 targeting_range = 200.0
-price = 10
+price = 1
 
 [node name="MouseIdle" type="Sprite" parent="."]
 scale = Vector2( 0.248062, 0.248062 )

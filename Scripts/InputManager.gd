@@ -59,14 +59,23 @@ func _input(event):
 	var can_place = false
 	if activeButton and "position" in event: #EventKey
 		rounded_position = activeButton.position_filter(event.position)
-		can_place = ! _ref_GameState.used_positions.has(rounded_position)
-		
 		#price check
-		can_place = can_place and _ref_GameState.current_money >= activeButton.get_spawn_object().instance().price
+		can_place =  _ref_GameState.current_money >= activeButton.price
 		
-		#Check if placing would prevent pathfind
+		
+		#astar prep
 		var expandedPositions = _ref_GameState.used_positions.duplicate()
-		expandedPositions[rounded_position] = true
+		
+		var all_postions = []
+		for pos in activeButton.extraPositions:
+			var realPos = pos + rounded_position
+			#Collision
+			can_place = can_place and not _ref_GameState.used_positions.has(realPos)
+			#Astar
+			expandedPositions[realPos] = true
+		
+		#Astar finish
+		#Check if placing would prevent pathfind
 		var newastar = _ref_GameState.create_astar(expandedPositions)
 		var route = newastar.get_point_path(1, 0)
 		can_place = can_place and (! route.empty())
@@ -100,8 +109,10 @@ func _input(event):
 			var tower = activeButton.get_spawn_object().instance()
 			get_owner().add_child(tower)
 			tower.position = rounded_position
-			_ref_GameState.lose_money(tower.price)
+			_ref_GameState.lose_money(activeButton.price)
 			destroy_preview_object()
-			activeButton = null
-			_ref_GameState.used_positions[rounded_position] = true
+			for pos in activeButton.extraPositions:
+				var realPos = pos + rounded_position
+				_ref_GameState.used_positions[realPos] = true
 			_ref_GameState.reset_pathfinding()
+			activeButton = null
