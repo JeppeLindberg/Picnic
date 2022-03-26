@@ -4,8 +4,10 @@ class Test:
 	var stuff = 2
 
 
-export (PackedScene) var spawn
 export (Array, NodePath) var objects
+export (Color) var normal_color = Color.white
+export (Color) var invalid_color = Color.red
+export (Dictionary) var used_positions
 
 func query_buttons(position):
 	for obj in objects:
@@ -36,6 +38,14 @@ func get_or_create_preview():
 	return previewObject
 
 func _input(event):
+	var rounded_position = Vector2(-1000, -1000)
+	var can_place = false
+	if activeButton:
+		rounded_position = activeButton.position_filter(event.position)
+		can_place = ! used_positions.has(rounded_position)
+		if previewObject:
+			previewObject.modulate = normal_color if can_place else invalid_color 
+		
 	if event is InputEventMouseMotion:
 		var newButton = query_buttons(event.position)
 		if newButton != hoverButton: 
@@ -44,7 +54,7 @@ func _input(event):
 			hoverButton = newButton
 		elif !newButton and activeButton:
 			var obj = get_or_create_preview()
-			obj.position = activeButton.position_filter(event.position)
+			obj.position = rounded_position
 	
 	elif event is InputEventMouseButton and event.pressed:
 		#Is mouse over a button
@@ -56,12 +66,13 @@ func _input(event):
 			else:
 				activeButton = hoverButton
 		#Or a button has been clicked
-		elif activeButton:
+		elif activeButton and can_place:
 			destroy_preview_object()
 			var enemy = activeButton.get_spawn_object().instance()
 			get_owner().add_child(enemy)
-			enemy.position = activeButton.position_filter(event.position)
+			enemy.position = rounded_position
 			activeButton = null
+			used_positions[rounded_position] = true
 
 # Declare member variables here. Examples:
 # var a = 2
