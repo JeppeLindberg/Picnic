@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI.tscn" type="PackedScene" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://Resources/UI/FrogIcon.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Fork.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Resources/UI/ForkIcon.png" type="Texture" id=28]
+[ext_resource path="res://Assets/CoffeeCup.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Assets/CoffeeCupPreview.tscn" type="PackedScene" id=30]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -33,7 +35,7 @@ z_index = -10
 script = ExtResource( 9 )
 
 [node name="Cake" parent="." instance=ExtResource( 5 )]
-position = Vector2( 830, 302 )
+position = Vector2( 1000, 302 )
 
 [node name="GameState" type="Node2D" parent="."]
 script = ExtResource( 6 )
@@ -45,7 +47,7 @@ lanes = 10
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
 marker = NodePath("../PathfindDebug")
-objects = [ NodePath("Mouse"), NodePath("Badger"), NodePath("Frog"), NodePath("Fork") ]
+objects = [ NodePath("Mouse"), NodePath("Badger"), NodePath("Frog"), NodePath("Fork"), NodePath("CoffeeCup") ]
 
 [node name="Mouse" type="Sprite" parent="InputManager"]
 position = Vector2( 32, 48 )
@@ -84,6 +86,16 @@ preview_object = ExtResource( 27 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 0, -64 ) ]
 price = 0
 limit = 1
+
+[node name="CoffeeCup" type="Sprite" parent="InputManager"]
+position = Vector2( 319, 46 )
+scale = Vector2( 0.546875, 0.546875 )
+texture = ExtResource( 13 )
+script = ExtResource( 8 )
+spawn_object = ExtResource( 29 )
+preview_object = ExtResource( 30 )
+extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 64, 0 ), Vector2( 64, 64 ) ]
+price = 0
 
 [node name="Mousecost" type="Sprite" parent="InputManager"]
 position = Vector2( 56, 24 )
