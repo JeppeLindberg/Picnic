@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 var _StageCoords := preload("res://Scripts/Library/StageCoords.gd").new()
 var _Groups := preload("res://Scripts/Library/Groups.gd").new()
+const Pickup := preload("res://Assets/Pickup.tscn")
+
+export var money_drop_chance: float = 0.2
 
 var initialized = false
 var start_pos: Vector2
@@ -71,4 +74,8 @@ func _physics_process(delta):
 func collide():
 	dead = true
 	_ref_Nodes.remove_from_nodes(self)
+	if rng.randf() < money_drop_chance:
+		var new_node = Pickup.instance()
+		get_parent().add_child(new_node)
+		new_node.position = position
 	self.queue_free()
