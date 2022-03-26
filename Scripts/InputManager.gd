@@ -29,20 +29,33 @@ var activeButton = null
 # An object preview of what activeButton is
 var previewObject = null
 
+func destroy_preview_object():
+	if previewObject:
+		previewObject.queue_free()
+		previewObject = null
+		
+func get_or_create_preview():
+	if !previewObject:
+		previewObject = activeButton.get_preview_object().instance()
+		get_owner().add_child(previewObject)
+	return previewObject
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		var newButton = query_buttons(event.position)
 		if newButton != hoverButton: 
 			print("Changing active button from {from} to {to}".format({"from": activeButton, "to": newButton}))
+			destroy_preview_object()
 			hoverButton = newButton
+		elif !newButton and activeButton:
+			var obj = get_or_create_preview()
+			obj.position = activeButton.position_filter(event.position)
 	
 	elif event is InputEventMouseButton and event.pressed:
 		#Is mouse over a button
 		if hoverButton != null:
 			print("click() on sprite")
-			if previewObject:
-				previewObject.queue_free()
-				previewObject = null
+			destroy_preview_object()
 			if activeButton == hoverButton:
 				activeButton = null
 			else:
@@ -52,8 +65,9 @@ func _input(event):
 			var tower = activeButton.get_spawn_object().instance()
 			if _ref_GameState.money >= tower.price:
 				get_owner().add_child(tower)
-				tower.position = event.position
+				tower.position = activeButton.position_filter(event.position)
 				_ref_GameState.lose_money(tower.price)
 			else:
 				print("Not enough money")
+			destroy_preview_object()
 			activeButton = null
