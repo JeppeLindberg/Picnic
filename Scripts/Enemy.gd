@@ -22,9 +22,9 @@ func random_vector(maxSize : Vector2):
 
 func mess_path(points : PoolVector2Array):
 	var state = random_vector(position_offset)
-	print("Messing points")
+	# print("Messing points")
 	for i in range(points.size()):
-		print("   Offset state of " + str(state))
+		#print("   Offset state of " + str(state))
 		points[i] += state
 		state = (state * (position_offset_stages - 1) +  random_vector(position_offset)) / position_offset_stages
 	return points
@@ -57,7 +57,7 @@ func _physics_process(delta):
 	var distance_to_next_node =  (path[0] - position).length()
 	var time_to_next_node = distance_to_next_node / speed;
 	if (delta > time_to_next_node):
-		print("Corner!")
+		# print("Corner!")
 		path.remove(0)
 	
 	
