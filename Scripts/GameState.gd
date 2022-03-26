@@ -68,9 +68,9 @@ func create_astar(dict):
 					astar.connect_points(point, previous_point[yindex])
 					# print("Connecting " + str(previous_point[yindex]) + ", " + str(point))
 					
-					#previous_point[yindex-1] has already been updated or removed, so we can simply query its existence for sideways connection
-					if previous_point.has(yindex - 1):
-						astar.connect_points(point, previous_point[yindex - 1])
+				#previous_point[yindex-1] has already been updated or removed, so we can simply query its existence for sideways connection
+				if previous_point.has(yindex - 1):
+					astar.connect_points(point, previous_point[yindex - 1])
 					
 					
 				previous_point[yindex] = point
