@@ -28,9 +28,12 @@ var _spawn_timer: float
 var rng = RandomNumberGenerator.new()
 
 
-func lose_money(subtraction):
-	current_money -= subtraction
-	
+func gain_money(amount):
+	current_money += amount
+	update_display()
+
+func lose_money(amount):
+	current_money -= amount
 	update_display()
 
 func lose_health():
