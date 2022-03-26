@@ -41,6 +41,13 @@ func _process(delta):
 			new_node.target_pos = closest_enemy.position
 			new_node.max_range = targeting_range * 1.5
 	
+	if bullet_timer < 0.2:
+		$MouseShoot.visible = true
+		$MouseIdle.visible = false
+	else:
+		$MouseShoot.visible = false
+		$MouseIdle.visible = true
+	
 	if not enemy_found:
 		if bullet_timer > 1:
 			bullet_timer = 1
