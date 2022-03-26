@@ -57,9 +57,30 @@ func _physics_process(delta):
 func _input(event):
 	var rounded_position = Vector2(-1000, -1000)
 	var can_place = false
-	if activeButton:
+	if activeButton and "position" in event: #EventKey
 		rounded_position = activeButton.position_filter(event.position)
-		can_place = ! _ref_GameState.used_positions.has(rounded_position)
+		#price check
+		can_place =  _ref_GameState.current_money >= activeButton.price
+		
+		
+		#astar prep
+		var expandedPositions = _ref_GameState.used_positions.duplicate()
+		
+		var all_postions = []
+		for pos in activeButton.extraPositions:
+			var realPos = pos + rounded_position
+			#Collision
+			can_place = can_place and not _ref_GameState.used_positions.has(realPos)
+			#Astar
+			expandedPositions[realPos] = true
+		
+		#Astar finish
+		#Check if placing would prevent pathfind
+		var newastar = _ref_GameState.create_astar(expandedPositions)
+		var route = newastar.get_point_path(1, 0)
+		can_place = can_place and (! route.empty())
+		
+		
 		if previewObject:
 			previewObject.modulate = normal_color if can_place else invalid_color 
 		
@@ -86,13 +107,12 @@ func _input(event):
 		#Or a button has been clicked
 		elif activeButton  and can_place:
 			var tower = activeButton.get_spawn_object().instance()
-			if _ref_GameState.current_money >= tower.price:
-				get_owner().add_child(tower)
-				tower.position = rounded_position
-				_ref_GameState.lose_money(tower.price)
-			else:
-				print("Not enough money")
+			get_owner().add_child(tower)
+			tower.position = rounded_position
+			_ref_GameState.lose_money(activeButton.price)
 			destroy_preview_object()
-			activeButton = null
-			_ref_GameState.used_positions[rounded_position] = true
+			for pos in activeButton.extraPositions:
+				var realPos = pos + rounded_position
+				_ref_GameState.used_positions[realPos] = true
 			_ref_GameState.reset_pathfinding()
+			activeButton = null

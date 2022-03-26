@@ -24,6 +24,7 @@
 [ext_resource path="res://Resources/UI/BadgerIcon.png" type="Texture" id=22]
 [ext_resource path="res://Resources/UI/BadgerCost.png" type="Texture" id=23]
 [ext_resource path="res://Assets/FrogTower.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Assets/Fork.tscn" type="PackedScene" id=25]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -139,7 +140,7 @@ texture = ExtResource( 15 )
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
 marker = NodePath("../PathfindDebug")
-objects = [ NodePath("Mouse"), NodePath("Badger") ]
+objects = [ NodePath("Mouse"), NodePath("Badger"), NodePath("Fork") ]
 
 [node name="Mouse" type="Sprite" parent="InputManager"]
 position = Vector2( 37, 37 )
@@ -148,6 +149,7 @@ texture = ExtResource( 13 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 4 )
 preview_object = ExtResource( 11 )
+price = 10
 
 [node name="Badger" type="Sprite" parent="InputManager"]
 position = Vector2( 37, 111 )
@@ -156,6 +158,17 @@ texture = ExtResource( 22 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 20 )
 preview_object = ExtResource( 21 )
+price = 20
+
+[node name="Fork" type="Sprite" parent="InputManager"]
+position = Vector2( 32, 184 )
+scale = Vector2( 0.546875, 0.546875 )
+texture = ExtResource( 13 )
+script = ExtResource( 8 )
+spawn_object = ExtResource( 24 )
+preview_object = ExtResource( 11 )
+extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 0, -64 ) ]
+price = 0
 
 [node name="Mousecost" type="Sprite" parent="InputManager"]
 position = Vector2( 59, 67 )

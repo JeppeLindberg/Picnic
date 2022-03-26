@@ -30,7 +30,7 @@ func _physics_process(delta):
 	
 	rotation = movement_vec.normalized().rotated(PI / 2).angle()
 	var collision = move_and_collide(movement_vec)
-	if collision:
+	if collision and not collision.collider.dead:
 		collision.collider.collide()
 		if collision.collider.is_in_group(_Groups.ENEMY):
 			if rng.randf() < money_drop_chance:

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Towers/BadgerIdle.png" type="Texture" id=1]
+
+[node name="Fork" type="Node2D"]
+
+[node name="BadgerIdle" type="Sprite" parent="."]
+scale = Vector2( 0.17, 0.51 )
+texture = ExtResource( 1 )
