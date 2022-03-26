@@ -39,6 +39,7 @@ func _process(delta):
 			new_node.position = position
 			new_node.start_pos = position
 			new_node.target_pos = closest_enemy.position
+			new_node.max_range = targeting_range * 1.5
 	
 	if not enemy_found:
 		if bullet_timer > 1:

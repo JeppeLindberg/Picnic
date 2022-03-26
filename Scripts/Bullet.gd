@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var target_pos: Vector2
 var start_pos: Vector2
+var max_range: float
 export var speed: float
 
 
@@ -13,6 +14,8 @@ func _physics_process(delta):
 	if collision:
 		collision.collider.collide()
 		collide()
+	if start_pos.distance_to(position) > max_range:
+		self.queue_free()
 	
 
 func collide():
