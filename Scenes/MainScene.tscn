@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/UI/Flower1.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/BadgerTowerPreview.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Resources/UI/BadgerIcon.png" type="Texture" id=22]
 [ext_resource path="res://Resources/UI/BadgerCost.png" type="Texture" id=23]
+[ext_resource path="res://Assets/FrogTower.tscn" type="PackedScene" id=24]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -176,3 +177,6 @@ position = Vector2( 15, 35 )
 position = Vector2( 123, 436 )
 
 [node name="PathfindDebug" type="Line2D" parent="."]
+
+[node name="FrogTower" parent="." instance=ExtResource( 24 )]
+position = Vector2( 321, 319 )
