@@ -3,6 +3,7 @@ extends Node2D
 var _Groups := preload("res://Scripts/Library/Groups.gd").new()
 
 export var targeting_range: float
+export var price: int
 var bullet_timer: float
 
 const Bullet := preload("res://Assets/Bullet.tscn")

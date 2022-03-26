@@ -3,12 +3,17 @@ extends Node2D
 class Test:
 	var stuff = 2
 
+const GameState := preload("res://Scripts/GameState.gd")
+var _ref_GameState: GameState
 
 export (Array, NodePath) var objects
 export (Color) var normal_color = Color.white
 export (Color) var invalid_color = Color.red
 export (Dictionary) var used_positions
 
+func _ready():
+	_ref_GameState = get_node("/root/MainScene/GameState")	
+	
 func query_buttons(position):
 	for obj in objects:
 		var node = get_node(obj)
@@ -66,26 +71,14 @@ func _input(event):
 			else:
 				activeButton = hoverButton
 		#Or a button has been clicked
-		elif activeButton and can_place:
+		elif activeButton  and can_place:
+			var tower = activeButton.get_spawn_object().instance()
+			if _ref_GameState.money >= tower.price:
+				get_owner().add_child(tower)
+				tower.position = rounded_position
+				_ref_GameState.lose_money(tower.price)
+			else:
+				print("Not enough money")
 			destroy_preview_object()
-			var enemy = activeButton.get_spawn_object().instance()
-			get_owner().add_child(enemy)
-			enemy.position = rounded_position
 			activeButton = null
 			used_positions[rounded_position] = true
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
