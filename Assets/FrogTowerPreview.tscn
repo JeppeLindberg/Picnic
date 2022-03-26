@@ -4,6 +4,7 @@
 [ext_resource path="res://Resources/Towers/BadgerShootLeft.png" type="Texture" id=4]
 
 [node name="FrogTower" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.290196 )
 
 [node name="FrogIdle" type="Sprite" parent="."]
 scale = Vector2( 0.16955, 0.16955 )

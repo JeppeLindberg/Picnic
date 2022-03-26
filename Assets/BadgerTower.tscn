@@ -7,6 +7,7 @@
 
 [node name="BadgerTower" type="Node2D"]
 script = ExtResource( 2 )
+shooting_cooldown = 1.0
 
 [node name="BadgerIdle" type="Sprite" parent="."]
 scale = Vector2( 0.16955, 0.16955 )

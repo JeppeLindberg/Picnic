@@ -149,7 +149,7 @@ texture = ExtResource( 13 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 4 )
 preview_object = ExtResource( 11 )
-price = 10
+price = 5
 
 [node name="Badger" type="Sprite" parent="InputManager"]
 position = Vector2( 37, 111 )
@@ -158,7 +158,7 @@ texture = ExtResource( 22 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 20 )
 preview_object = ExtResource( 21 )
-price = 20
+price = 12
 
 [node name="Frog" type="Sprite" parent="InputManager"]
 position = Vector2( 38, 186 )
@@ -167,28 +167,37 @@ texture = ExtResource( 13 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 24 )
 preview_object = ExtResource( 25 )
-price = 0
+price = 50
 
 [node name="Fork" type="Sprite" parent="InputManager"]
 position = Vector2( 40, 257 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 13 )
 script = ExtResource( 8 )
-spawn_object = ExtResource( 24 )
-preview_object = ExtResource( 11 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 0, -64 ) ]
 price = 0
 limit = 1
 
 [node name="Mousecost" type="Sprite" parent="InputManager"]
+visible = false
 position = Vector2( 59, 67 )
 scale = Vector2( 0.289157, 0.289157 )
 texture = ExtResource( 19 )
 
 [node name="BadgerCost" type="Sprite" parent="InputManager"]
+visible = false
 position = Vector2( 90, 128 )
 scale = Vector2( 0.362637, 0.362637 )
 texture = ExtResource( 23 )
+
+[node name="PickupSpawn" type="Node2D" parent="."]
+position = Vector2( 464, 4 )
+
+[node name="TopLeft" type="Node2D" parent="PickupSpawn"]
+position = Vector2( -68, 0 )
+
+[node name="BottomRight" type="Node2D" parent="PickupSpawn"]
+position = Vector2( 134, 57 )
 
 [node name="EnemySpawn" type="Node2D" parent="."]
 position = Vector2( -192, 66 )
