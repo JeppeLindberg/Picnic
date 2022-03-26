@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ant1.png-62eb02bf6360d97ca7247425eac487ec.stex"
+path="res://.import/Ant4.png-c76c04bf63ace0685c3273f9d05b47c0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Ant1.png"
-dest_files=[ "res://.import/Ant1.png-62eb02bf6360d97ca7247425eac487ec.stex" ]
+source_file="res://Resources/Ant/Ant4.png"
+dest_files=[ "res://.import/Ant4.png-c76c04bf63ace0685c3273f9d05b47c0.stex" ]
 
 [params]
 

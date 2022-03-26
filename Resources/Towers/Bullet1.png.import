@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ant2.png-878942e4635733fc5a6ec9e47c49f5b7.stex"
+path="res://.import/Bullet1.png-eea5a605f599816f644dc2bfbb2e0ca1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Ant2.png"
-dest_files=[ "res://.import/Ant2.png-878942e4635733fc5a6ec9e47c49f5b7.stex" ]
+source_file="res://Resources/Towers/Bullet1.png"
+dest_files=[ "res://.import/Bullet1.png-eea5a605f599816f644dc2bfbb2e0ca1.stex" ]
 
 [params]
 

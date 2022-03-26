@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ant4.png-69e695b44ae7f2bcdb1c91f1adb67bae.stex"
+path="res://.import/Grid8x.png-8d1b2b7ecd0daef9148ce6e2e5322532.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Ant4.png"
-dest_files=[ "res://.import/Ant4.png-69e695b44ae7f2bcdb1c91f1adb67bae.stex" ]
+source_file="res://Resources/PicnicCloth/Grid8x.png"
+dest_files=[ "res://.import/Grid8x.png-8d1b2b7ecd0daef9148ce6e2e5322532.stex" ]
 
 [params]
 

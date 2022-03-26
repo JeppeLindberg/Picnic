@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MouseIdle.png-243641aca2e9fa098d455daafca9a20e.stex"
+path="res://.import/Grid1.png-b35ee616e70de9a13d6b7833ddd416b6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/MouseIdle.png"
-dest_files=[ "res://.import/MouseIdle.png-243641aca2e9fa098d455daafca9a20e.stex" ]
+source_file="res://Resources/PicnicCloth/Grid1.png"
+dest_files=[ "res://.import/Grid1.png-b35ee616e70de9a13d6b7833ddd416b6.stex" ]
 
 [params]
 
