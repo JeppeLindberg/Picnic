@@ -15,7 +15,7 @@ var _cake : Node2D
 
 export var spawn_count_first_waves = [6, 14, 22, 36, 50]
 export var spawn_duration_first_waves = [5.0, 5.0, 5.0, 5.0, 5.0]
-export var money_reward_first_waves = [10, 12, 14, 16]
+export var money_reward_first_waves = [10, 12, 8, 6]
 
 export var seconds_between_rounds = 5
 export var round_spawn_duration_base = 4.0
@@ -24,7 +24,7 @@ export var round_spawn_count_base = 48
 export var round_spawn_count_scaling = 7
 
 var current_health = 6
-var current_money = 10
+var current_money = 12
 
 var _current_wave = 0
 var _current_wave_start_time: int

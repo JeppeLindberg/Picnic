@@ -7,11 +7,5 @@
 [node name="Fork" type="Sprite" parent="."]
 position = Vector2( -8, 0 )
 rotation = -0.0627807
-scale = Vector2( 0.0835073, 0.106052 )
-texture = ExtResource( 1 )
-
-[node name="Fork2" type="Sprite" parent="."]
-position = Vector2( -8, 0 )
-rotation = -0.0627807
-scale = Vector2( 0.0835073, 0.106052 )
+scale = Vector2( 0.177042, 0.224838 )
 texture = ExtResource( 1 )

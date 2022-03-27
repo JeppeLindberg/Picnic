@@ -10,6 +10,7 @@ scale = Vector2( 0.16955, 0.16955 )
 texture = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.227451 )
 scale = Vector2( 0.391, 0.391 )
 z_index = -9
 texture = ExtResource( 2 )
