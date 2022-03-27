@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Towers/FrogIdle.png" type="Texture" id=1]
+[ext_resource path="res://Resources/range_outline.png" type="Texture" id=2]
 
 [node name="FrogTower" type="Node2D"]
 modulate = Color( 1, 1, 1, 0.290196 )
+
+[node name="RangeOutline" type="Sprite" parent="."]
+scale = Vector2( 0.195, 0.195 )
+z_index = -9
+texture = ExtResource( 2 )
 
 [node name="FrogIdle" type="Sprite" parent="."]
 scale = Vector2( 0.132472, 0.132472 )
