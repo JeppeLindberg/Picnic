@@ -110,7 +110,7 @@ spawn_object = ExtResource( 15 )
 preview_object = ExtResource( 15 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 0, -64 ) ]
 price = 0
-limit = 3
+limit = 1
 
 [node name="ForkCost" type="Sprite" parent="InputManager/Fork"]
 position = Vector2( 1.82861, 80.4571 )
@@ -126,6 +126,12 @@ spawn_object = ExtResource( 29 )
 preview_object = ExtResource( 30 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 64, 0 ), Vector2( 64, 64 ) ]
 price = 0
+limit = 1
+
+[node name="ForkCost" type="Sprite" parent="InputManager/CoffeeCup"]
+position = Vector2( 1.82861, 80.4571 )
+scale = Vector2( 0.457143, 0.457143 )
+texture = ExtResource( 14 )
 
 [node name="PickupSpawn" type="Node2D" parent="."]
 position = Vector2( 464, 4 )
