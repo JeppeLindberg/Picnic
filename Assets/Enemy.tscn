@@ -15,7 +15,7 @@ animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
-"speed": 6.0
+"speed": 7.0
 } ]
 
 [node name="Enemy" type="KinematicBody2D"]

@@ -6,4 +6,5 @@
 
 [node name="CoffeeCup" type="Sprite" parent="."]
 position = Vector2( 32, 32 )
+scale = Vector2( 0.32, 0.32 )
 texture = ExtResource( 1 )

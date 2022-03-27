@@ -5,6 +5,7 @@
 [node name="CoffeeCup" type="Node2D"]
 
 [node name="CoffeeCup" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.392157 )
+modulate = Color( 1, 1, 1, 0.447059 )
 position = Vector2( 32, 32 )
+scale = Vector2( 0.32, 0.32 )
 texture = ExtResource( 1 )
