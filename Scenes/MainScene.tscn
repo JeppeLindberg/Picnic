@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI.tscn" type="PackedScene" id=2]
@@ -6,12 +6,15 @@
 [ext_resource path="res://Assets/Tower.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Cake.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/GameState.gd" type="Script" id=6]
+[ext_resource path="res://Resources/UI/FrogCost.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/PlaceableTemplate.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Nodes.gd" type="Script" id=9]
+[ext_resource path="res://Resources/UI/MouseCost.png" type="Texture" id=10]
 [ext_resource path="res://Assets/TowerPreview.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/PicnicClothBackground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Resources/UI/MouseIcon.png" type="Texture" id=13]
-[ext_resource path="res://Resources/UI/Mousecost.png" type="Texture" id=19]
+[ext_resource path="res://Resources/UI/ForkCost.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Fork.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/BadgerTower.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/BadgerTowerPreview.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Resources/UI/BadgerIcon.png" type="Texture" id=22]
@@ -19,7 +22,7 @@
 [ext_resource path="res://Assets/FrogTower.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Assets/FrogTowerPreview.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Resources/UI/FrogIcon.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Fork.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Resources/UI/Bordertop.png" type="Texture" id=27]
 [ext_resource path="res://Resources/UI/ForkIcon.png" type="Texture" id=28]
 [ext_resource path="res://Assets/CoffeeCup.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Assets/CoffeeCupPreview.tscn" type="PackedScene" id=30]
@@ -31,6 +34,11 @@ script = ExtResource( 1 )
 position = Vector2( 448, 384 )
 z_index = -10
 
+[node name="Bordertop" type="Sprite" parent="."]
+position = Vector2( 519.2, 64 )
+scale = Vector2( 0.54, 0.66 )
+texture = ExtResource( 27 )
+
 [node name="Nodes" type="Node2D" parent="."]
 script = ExtResource( 9 )
 
@@ -39,7 +47,7 @@ position = Vector2( 1000, 302 )
 
 [node name="GameState" type="Node2D" parent="."]
 script = ExtResource( 6 )
-end_index = 700
+end_index = 900
 lanes = 10
 
 [node name="GUI" parent="." instance=ExtResource( 2 )]
@@ -50,7 +58,7 @@ marker = NodePath("../PathfindDebug")
 objects = [ NodePath("Mouse"), NodePath("Badger"), NodePath("Frog"), NodePath("Fork"), NodePath("CoffeeCup") ]
 
 [node name="Mouse" type="Sprite" parent="InputManager"]
-position = Vector2( 32, 48 )
+position = Vector2( 35, 37 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 13 )
 script = ExtResource( 8 )
@@ -58,8 +66,13 @@ spawn_object = ExtResource( 4 )
 preview_object = ExtResource( 11 )
 price = 5
 
+[node name="MouseCost" type="Sprite" parent="InputManager/Mouse"]
+position = Vector2( 1.82857, 76.8 )
+scale = Vector2( 0.457143, 0.457143 )
+texture = ExtResource( 10 )
+
 [node name="Badger" type="Sprite" parent="InputManager"]
-position = Vector2( 104, 48 )
+position = Vector2( 107, 37 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 22 )
 script = ExtResource( 8 )
@@ -67,8 +80,13 @@ spawn_object = ExtResource( 20 )
 preview_object = ExtResource( 21 )
 price = 12
 
+[node name="BadgerCost" type="Sprite" parent="InputManager/Badger"]
+position = Vector2( 5.48572, 80.4571 )
+scale = Vector2( 0.457143, 0.457143 )
+texture = ExtResource( 23 )
+
 [node name="Frog" type="Sprite" parent="InputManager"]
-position = Vector2( 176, 48 )
+position = Vector2( 179, 37 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 26 )
 script = ExtResource( 8 )
@@ -76,19 +94,29 @@ spawn_object = ExtResource( 24 )
 preview_object = ExtResource( 25 )
 price = 50
 
+[node name="FrogCost" type="Sprite" parent="InputManager/Frog"]
+position = Vector2( 3.6571, 74.9714 )
+scale = Vector2( 0.457143, 0.457143 )
+texture = ExtResource( 7 )
+
 [node name="Fork" type="Sprite" parent="InputManager"]
-position = Vector2( 248, 48 )
+position = Vector2( 251, 37 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 28 )
 script = ExtResource( 8 )
-spawn_object = ExtResource( 27 )
-preview_object = ExtResource( 27 )
+spawn_object = ExtResource( 15 )
+preview_object = ExtResource( 15 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 0, -64 ) ]
 price = 0
 limit = 3
 
+[node name="ForkCost" type="Sprite" parent="InputManager/Fork"]
+position = Vector2( 1.82861, 80.4571 )
+scale = Vector2( 0.457143, 0.457143 )
+texture = ExtResource( 14 )
+
 [node name="CoffeeCup" type="Sprite" parent="InputManager"]
-position = Vector2( 319, 46 )
+position = Vector2( 322, 35 )
 scale = Vector2( 0.546875, 0.546875 )
 texture = ExtResource( 13 )
 script = ExtResource( 8 )
@@ -96,16 +124,6 @@ spawn_object = ExtResource( 29 )
 preview_object = ExtResource( 30 )
 extraPositions = [ Vector2( 0, 0 ), Vector2( 0, 64 ), Vector2( 64, 0 ), Vector2( 64, 64 ) ]
 price = 0
-
-[node name="Mousecost" type="Sprite" parent="InputManager"]
-position = Vector2( 56, 24 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 19 )
-
-[node name="BadgerCost" type="Sprite" parent="InputManager"]
-position = Vector2( 112, 8 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 23 )
 
 [node name="PickupSpawn" type="Node2D" parent="."]
 position = Vector2( 464, 4 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mousecost.png-138ef905b293761214e5e580b9e4c644.stex"
+path="res://.import/FrogCost.png-b38b0fc4d6a6918afe64a28012b52a37.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/UI/Mousecost.png"
-dest_files=[ "res://.import/Mousecost.png-138ef905b293761214e5e580b9e4c644.stex" ]
+source_file="res://Resources/UI/FrogCost.png"
+dest_files=[ "res://.import/FrogCost.png-b38b0fc4d6a6918afe64a28012b52a37.stex" ]
 
 [params]
 
