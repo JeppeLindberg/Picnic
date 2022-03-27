@@ -45,7 +45,7 @@ texture = ExtResource( 27 )
 script = ExtResource( 9 )
 
 [node name="Cake" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1000, 302 )
+position = Vector2( 489, 333 )
 
 [node name="GameState" type="Node2D" parent="."]
 script = ExtResource( 6 )

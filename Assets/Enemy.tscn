@@ -19,6 +19,7 @@ animations = [ {
 } ]
 
 [node name="Enemy" type="KinematicBody2D"]
+z_index = 2
 collision_layer = 0
 script = ExtResource( 2 )
 money_drop_chance = 0.4
@@ -31,5 +32,5 @@ shape = SubResource( 1 )
 position = Vector2( 2, -9.53674e-07 )
 scale = Vector2( 0.210526, 0.210526 )
 frames = SubResource( 2 )
-frame = 3
+frame = 1
 playing = true
