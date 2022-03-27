@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Resources/UI/MouseIcon.png" type="Texture" id=13]
 [ext_resource path="res://Resources/UI/ForkCost.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Fork.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Resources/UI/CoffeCupIcon.png" type="Texture" id=16]
 [ext_resource path="res://Assets/BadgerTower.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/BadgerTowerPreview.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Resources/UI/BadgerIcon.png" type="Texture" id=22]
@@ -119,7 +120,7 @@ texture = ExtResource( 14 )
 [node name="CoffeeCup" type="Sprite" parent="InputManager"]
 position = Vector2( 322, 35 )
 scale = Vector2( 0.546875, 0.546875 )
-texture = ExtResource( 13 )
+texture = ExtResource( 16 )
 script = ExtResource( 8 )
 spawn_object = ExtResource( 29 )
 preview_object = ExtResource( 30 )
