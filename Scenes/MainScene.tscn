@@ -149,6 +149,6 @@ position = Vector2( -192, 66 )
 position = Vector2( 15, 35 )
 
 [node name="BottomRight" type="Node2D" parent="EnemySpawn"]
-position = Vector2( 123, 436 )
+position = Vector2( 136, 518 )
 
 [node name="PathfindDebug" type="Line2D" parent="."]
