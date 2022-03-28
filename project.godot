@@ -12,7 +12,8 @@ config_version=4
 
 config/name="Picnic"
 run/main_scene="res://Scenes/TitleScreen.tscn"
-config/icon="res://Resources/Towers/MouseIdle.png"
+config/icon="res://Resources/Decoration/Strawberry1__Large.png"
+config/windows_native_icon="res://Resources/Strawberry.ico"
 
 [display]
 
