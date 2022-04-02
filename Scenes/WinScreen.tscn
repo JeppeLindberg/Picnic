@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Resources/Themes/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Menu/MenuButton.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Menu/Retry.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Decoration/Flower3__Large.png" type="Texture" id=4]
+[ext_resource path="res://Resources/UI/WinScreen.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Decoration/Pencil.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Decoration/Flower1__Large.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Decoration/Strawberry1__Large.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Decoration/Flower2__Large.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Decoration/Strawberry3__Large.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Decoration/Flower4__Large.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Themes/Theme2.tres" type="Theme" id=12]
+[ext_resource path="res://Resources/Decoration/Strawberry2__Large.png" type="Texture" id=13]
+
+[node name="WinScreen" type="Node2D"]
+
+[node name="WinScreen" type="Sprite" parent="."]
+position = Vector2( 520, 333 )
+scale = Vector2( 0.570175, 0.570175 )
+z_index = -2
+texture = ExtResource( 5 )
+
+[node name="GUI" type="MarginContainer" parent="."]
+margin_right = 1025.0
+margin_bottom = 600.0
+
+[node name="MainContainer" type="VBoxContainer" parent="GUI"]
+margin_right = 1025.0
+margin_bottom = 600.0
+
+[node name="YouWin" type="Label" parent="GUI/MainContainer"]
+margin_right = 1025.0
+rect_min_size = Vector2( 132, 200 )
+size_flags_horizontal = 3
+theme = ExtResource( 12 )
+text = "Winner!"
+align = 1
+valign = 2
+
+[node name="Empty3" type="Panel" parent="GUI/MainContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 204.0
+margin_right = 1025.0
+margin_bottom = 462.0
+rect_min_size = Vector2( 300, 30 )
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/MainContainer"]
+margin_top = 466.0
+margin_right = 1025.0
+margin_bottom = 566.0
+alignment = 1
+
+[node name="MenuButton" type="Button" parent="GUI/MainContainer/HBoxContainer"]
+margin_left = 210.0
+margin_right = 510.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+theme = ExtResource( 1 )
+text = "Main Menu"
+script = ExtResource( 2 )
+
+[node name="Retry" type="Button" parent="GUI/MainContainer/HBoxContainer"]
+margin_left = 514.0
+margin_right = 814.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+theme = ExtResource( 1 )
+text = "Retry"
+script = ExtResource( 3 )
+
+[node name="Empty2" type="Panel" parent="GUI/MainContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 570.0
+margin_right = 1025.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 300, 30 )
+
+[node name="Pencil" type="Sprite" parent="."]
+position = Vector2( 944, 654 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="Strawberry2Large" type="Sprite" parent="."]
+position = Vector2( 149, 445 )
+rotation = -3.12594
+scale = Vector2( 0.348206, 0.348206 )
+z_index = -1
+texture = ExtResource( 10 )
+
+[node name="Flower1Large" type="Sprite" parent="."]
+position = Vector2( 604, 63 )
+scale = Vector2( 0.506122, 0.506122 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="Strawberry1Large" type="Sprite" parent="."]
+position = Vector2( 185, 106 )
+scale = Vector2( 0.564644, 0.564644 )
+z_index = -1
+texture = ExtResource( 8 )
+
+[node name="Flower2Large" type="Sprite" parent="."]
+position = Vector2( 850, 490 )
+scale = Vector2( 0.718367, 0.718367 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="Flower3Large" type="Sprite" parent="."]
+position = Vector2( 138, 296 )
+scale = Vector2( 0.408163, 0.408163 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="Flower4Large" type="Sprite" parent="."]
+position = Vector2( 411, 443 )
+rotation = -0.939408
+scale = Vector2( 0.494501, 0.494501 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="Strawberry3Large" type="Sprite" parent="."]
+position = Vector2( 823, 67 )
+rotation = 1.309
+scale = Vector2( 0.314266, 0.314266 )
+z_index = -1
+texture = ExtResource( 10 )
+
+[node name="Strawberry2Large2" type="Sprite" parent="."]
+position = Vector2( 542, 211 )
+rotation = -1.0472
+scale = Vector2( 0.216359, 0.216359 )
+texture = ExtResource( 13 )

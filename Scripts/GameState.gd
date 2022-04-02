@@ -130,6 +130,8 @@ func _process(delta):
 	if (_ongoing_wave == false) and \
 	(OS.get_ticks_msec() - _last_wave_end_time) > (seconds_between_rounds * 1000):
 		_current_wave += 1
+		if _current_wave >= 16:
+			get_tree().change_scene("res://Scenes/WinScreen.tscn")
 		_ongoing_wave = true
 		_current_wave_start_time = OS.get_ticks_msec()
 		if _current_wave - 1 < spawn_count_first_waves.size():
