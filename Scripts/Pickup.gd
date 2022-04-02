@@ -39,9 +39,6 @@ func _process(delta):
 		_sprite.rotation = _rot * (PI * 2)
 
 func _on_Pickup_mouse_entered():
-	pass
-
-func hover_mouse():
 	pick_up()
 
 func pick_up():

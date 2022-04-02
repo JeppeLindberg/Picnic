@@ -48,15 +48,6 @@ func get_or_create_preview():
 		get_owner().add_child(previewObject)
 	return previewObject
 	
-func _physics_process(delta):
-	var space = get_world_2d().direct_space_state
-	var mousePos = get_global_mouse_position()
-	var intersect = space.intersect_point(mousePos, 1)
-	if intersect:
-		for i in intersect:
-			if i.collider.is_in_group(_Groups.PICKUP):
-				i.collider.hover_mouse()
-
 func _input(event):
 	var rounded_position = Vector2(-1000, -1000)
 	var can_place = false
