@@ -9,7 +9,7 @@ func _ready():
 	_spawn_time = OS.get_ticks_msec()
 	
 func _process(delta):
-	if (OS.get_ticks_msec() - _spawn_time)/1000 > 0.15:
+	if (OS.get_ticks_msec() - _spawn_time)/1000.0 > 0.35:
 		self.queue_free()
 
 func collide():
